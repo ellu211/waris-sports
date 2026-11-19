@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WARIS SPORTS | Elite Sports Equipment, Bats, Kits & Gear</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandRed: '#ff3838',
+            brandRedDark: '#e02424',
+            brandDark: '#0b0f19',
+            brandSurface: '#111827',
+            brandCard: '#1a2234',
+            brandBorder: '#273349',
+            brandCyan: '#00f0ff',
+            brandLime: '#a3e635'
+          },
+          fontFamily: {
+            heading: ['Oswald', 'sans-serif'],
+            body: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[#0b0f19] text-gray-100 font-body min-h-screen flex flex-col selection:bg-red-600 selection:text-white">
+
+  <!-- TOP TICKER ANNOUNCEMENT BAR -->
+  <div id="store-header-banner" class="bg-gradient-to-r from-red-700 via-red-600 to-amber-600 text-white text-xs py-2 px-4 shadow-md transition duration-300">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1 text-center sm:text-left">
+      <div class="flex items-center gap-2 font-medium">
+        <span class="bg-black/30 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider text-amber-300">
+          <i class="fa-solid fa-shield-halved mr-1"></i> Order Policy
+        </span>
+        <span>Before ordering, buyer must pay <strong class="underline decoration-white font-black text-amber-200">₹249 Advance Token</strong> | Balance on Delivery</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs font-semibold">
+        <a href="tel:8638036662" class="hover:text-amber-200 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-phone text-xs"></i> 8638036662
+        </a>
+        <span class="text-white/40">|</span>
+        <a href="https://instagram.com/warissports2024" target="_blank" class="hover:text-amber-200 transition flex items-center gap-1.5">
+          <i class="fa-brands fa-instagram text-sm"></i> @warissports2024
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-gray-800/80 shadow-2xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-4">
+        
+        <!-- Brand Logo -->
+        <a href="#store-home" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white text-2xl shadow-lg shadow-red-900/40 border border-red-500/30 group-hover:scale-105 transition">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <div>
+            <div class="font-heading font-black text-2xl sm:text-3xl tracking-wider text-white flex items-center gap-1">
+              WARIS <span class="text-red-500">SPORTS</span>
+            </div>
+            <p class="text-[10px] uppercase font-bold tracking-widest text-gray-400 -mt-1 group-hover:text-cyan-400 transition">
+              Elite Equipment & Workshop
+            </p>
+          </div>
+        </a>
+
+        <!-- Search Bar (Desktop) -->
+        <div class="hidden md:flex flex-1 max-w-md mx-4">
+          <div class="relative w-full">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+            <input 
+              type="text" 
+              id="main-search-input" 
+              placeholder="Search cricket bats, balls, rackets, gym gear..."
+              class="w-full bg-gray-900/90 border border-gray-700/80 rounded-xl pl-10 pr-4 py-2.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition shadow-inner"
+            />
+          </div>
+        </div>
+
+        <!-- Right Action Items -->
+        <div class="flex items-center gap-2.5 sm:gap-4">
+          <!-- Official Instagram Link -->
+          <a 
+            href="https://instagram.com/warissports2024" 
+            target="_blank" 
+            title="Follow on Instagram @warissports2024"
+            class="hidden lg:flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-purple-900/40 to-pink-900/40 border border-pink-500/30 text-pink-300 hover:text-white hover:border-pink-500 text-xs font-bold transition">
+            <i class="fa-brands fa-instagram text-base"></i>
+            <span>warissports2024</span>
+          </a>
+
+          <!-- Official Call/WhatsApp -->
+          <a 
+            href="https://wa.me/918638036662" 
+            target="_blank"
+            title="Chat on WhatsApp 8638036662"
+            class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 hover:text-white hover:border-emerald-500 text-xs font-bold transition">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>8638036662</span>
+          </a>
+
+          <!-- Owner / Admin Portal Button -->
+          <button 
+            id="admin-toggle-btn"
+            type="button"
+            class="px-3.5 py-2 rounded-xl bg-gray-800/90 hover:bg-amber-600 border border-gray-700 text-amber-400 hover:text-white text-xs font-bold transition flex items-center gap-2 shadow"
+            title="Owner portal: List products, change prices & view orders">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span class="hidden sm:inline">Owner Portal</span>
+          </button>
+
+          <!-- Shopping Cart Drawer Trigger -->
+          <button 
+            id="header-cart-btn"
+            type="button"
+            class="relative px-3.5 py-2 rounded-xl btn-primary-sport flex items-center gap-2 text-xs font-bold shadow-lg shadow-red-900/30">
+            <i class="fa-solid fa-cart-shopping text-sm"></i>
+            <span class="hidden sm:inline">Cart</span>
+            <span 
+              id="header-cart-count" 
+              class="hidden px-2 py-0.5 rounded-full bg-white text-red-600 text-[11px] font-black font-mono shadow">
+              0
+            </span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Search Bar -->
+      <div class="md:hidden pb-3">
+        <div class="relative w-full">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+          <input 
+            type="text" 
+            oninput="document.getElementById('main-search-input').value = this.value; AppState.searchQuery = this.value.trim().toLowerCase(); renderProducts();"
+            placeholder="Search sports gear, bats, shoes..."
+            class="w-full bg-gray-900/90 border border-gray-700 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-red-500"
+          />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- OWNER / ADMIN PANEL (HIDDEN BY DEFAULT, ACTIVATED BY OWNER) -->
+  <section id="owner-admin-panel" class="hidden bg-gray-950 border-b-2 border-amber-500/80 py-8 px-4 sm:px-6 lg:px-8 shadow-2xl relative">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Panel Header -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 border-b border-gray-800 gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="admin-badge">OWNER ACCESS GRANTED</span>
+            <span class="text-xs text-amber-400 font-mono">WARIS SPORTS OWNER CONTROL CENTER</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">
+            Store Management, Product Listing & Pricing
+          </h2>
+          <p class="text-xs text-gray-400 mt-1">
+            Manually list new equipment, set or update prices instantly, manage stock, and verify ₹249 advance buyer orders.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="restoreDefaultCatalog()" class="px-3 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-xs font-semibold rounded-lg border border-gray-700 transition">
+            <i class="fa-solid fa-rotate-left mr-1"></i> Reset Catalog
+          </button>
+          <button onclick="exportCatalogJson()" class="px-3 py-2 bg-gray-800 hover:bg-gray-700 text-cyan-400 text-xs font-semibold rounded-lg border border-gray-700 transition">
+            <i class="fa-solid fa-download mr-1"></i> Export Catalog
+          </button>
+          <button onclick="toggleAdminMode()" class="px-3 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-lg shadow transition">
+            <i class="fa-solid fa-xmark mr-1"></i> Close Admin
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Dashboard -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 my-6">
+        <div class="bg-gray-900/90 border border-gray-800 p-4 rounded-xl">
+          <span class="text-[11px] font-bold uppercase text-gray-400 tracking-wider">Total Equipment Listed</span>
+          <div class="text-2xl sm:text-3xl font-black text-white font-mono mt-1" id="admin-metric-products">0</div>
+          <span class="text-[10px] text-emerald-400">Live in buyer store</span>
+        </div>
+
+        <div class="bg-gray-900/90 border border-gray-800 p-4 rounded-xl">
+          <span class="text-[11px] font-bold uppercase text-gray-400 tracking-wider">Customer Orders Placed</span>
+          <div class="text-2xl sm:text-3xl font-black text-cyan-400 font-mono mt-1" id="admin-metric-orders">0</div>
+          <span class="text-[10px] text-gray-400">Awaiting or Dispatched</span>
+        </div>
+
+        <div class="bg-gray-900/90 border border-gray-800 p-4 rounded-xl">
+          <span class="text-[11px] font-bold uppercase text-gray-400 tracking-wider">₹249 Advance Tokens</span>
+          <div class="text-2xl sm:text-3xl font-black text-amber-400 font-mono mt-1" id="admin-metric-advance">₹0</div>
+          <span class="text-[10px] text-amber-300">Verified Advance Deposits</span>
+        </div>
+
+        <div class="bg-gray-900/90 border border-gray-800 p-4 rounded-xl">
+          <span class="text-[11px] font-bold uppercase text-gray-400 tracking-wider">Inventory Stock Value</span>
+          <div class="text-2xl sm:text-3xl font-black text-emerald-400 font-mono mt-1" id="admin-metric-value">₹0</div>
+          <span class="text-[10px] text-gray-400">Total Catalog Worth</span>
+        </div>
+      </div>
+
+      <!-- Admin Tabs Navigation -->
+      <div class="flex items-center gap-2 border-b border-gray-800 mb-6 overflow-x-auto pb-1">
+        <button 
+          id="tab-btn-products" 
+          onclick="switchAdminTab('products')" 
+          class="admin-tab-btn active px-4 py-3 text-xs font-bold uppercase tracking-wider text-amber-400 border-b-2 border-amber-500 whitespace-nowrap">
+          <i class="fa-solid fa-tags mr-1.5"></i> Manage & Set Prices
+        </button>
+
+        <button 
+          id="tab-btn-add" 
+          onclick="switchAdminTab('add')" 
+          class="admin-tab-btn px-4 py-3 text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-white whitespace-nowrap">
+          <i class="fa-solid fa-plus-circle mr-1.5"></i> + List New Product Manually
+        </button>
+
+        <button 
+          id="tab-btn-orders" 
+          onclick="switchAdminTab('orders')" 
+          class="admin-tab-btn px-4 py-3 text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-white whitespace-nowrap">
+          <i class="fa-solid fa-boxes-packing mr-1.5"></i> Orders & ₹249 Advance Payments
+        </button>
+      </div>
+
+      <!-- TAB 1: PRODUCT LIST & DIRECT INLINE PRICE EDITING -->
+      <div id="admin-tab-products" class="admin-tab-content">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-4">
+          <div class="relative w-full sm:w-72">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs"></i>
+            <input 
+              type="text" 
+              oninput="renderAdminProductTable(this.value)" 
+              placeholder="Filter products by name or brand..." 
+              class="w-full bg-gray-900 border border-gray-800 rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-amber-500"
+            />
+          </div>
+          <div class="text-xs text-gray-400 flex items-center gap-2">
+            <i class="fa-solid fa-circle-info text-amber-400"></i>
+            <span>Tip: Owner can <strong>directly edit the price field</strong> in the table below and press Enter to save!</span>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto rounded-xl border border-gray-800 bg-gray-900/60">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="border-b border-gray-800 bg-gray-900/90 text-gray-400 uppercase tracking-wider font-bold">
+                <th class="p-3">Product Name & Category</th>
+                <th class="p-3">Owner Selling Price (₹)</th>
+                <th class="p-3">Stock Status</th>
+                <th class="p-3">Badge</th>
+                <th class="p-3 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-products-tbody">
+              <!-- Dynamically Populated by App.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 2: MANUAL PRODUCT LISTING FORM -->
+      <div id="admin-tab-add" class="admin-tab-content hidden">
+        <div class="max-w-3xl bg-gray-900/90 border border-gray-800 rounded-2xl p-6 sm:p-8">
+          <div class="mb-6">
+            <h3 class="text-xl font-black text-white uppercase tracking-wide">
+              Manual Product Listing Form
+            </h3>
+            <p class="text-xs text-gray-400 mt-1">
+              Add any sports equipment, set your custom selling price, upload or pick a photo, and publish directly to the buyer catalog.
+            </p>
+          </div>
+
+          <form id="admin-product-form" class="space-y-5">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Product Title -->
+              <div class="sm:col-span-2">
+                <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">
+                  Product Name / Title *
+                </label>
+                <input 
+                  type="text" 
+                  id="admin-product-name" 
+                  required 
+                  placeholder="e.g. Waris Special Gold Edition Cricket Bat"
+                  class="w-full bg-gray-950 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500"
+                />
+              </div>
+
+              <!-- Category -->
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">
+                  Sport Category *
+                </label>
+                <select id="admin-product-category" class="w-full bg-gray-950 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500">
+                  <option value="cricket">Cricket Equipment</option>
+                  <option value="football">Football & Boots</option>
+                  <option value="badminton">Badminton & Rackets</option>
+                  <option value="fitness">Gym & Fitness Gear</option>
+                  <option value="running">Running & Footwear</option>
+                  <option value="apparel">Apparel & Team Kits</option>
+                </select>
+              </div>
+
+              <!-- Brand Name -->
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">
+                  Brand Name
+                </label>
+                <input 
+                  type="text" 
+                  id="admin-product-brand" 
+                  placeholder="e.g. Waris Sports / SG / SS / Yonex"
+                  class="w-full bg-gray-950 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500"
+                />
+              </div>
+
+              <!-- Selling Price (Owner sets price) -->
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-amber-300 mb-1.5">
+                  Owner Selling Price (₹) *
+                </label>
+                <input 
+                  type="number" 
+                  id="admin-product-price" 
+                  required 
+                  min="1"
+                  placeholder="e.g. 4999"
+                  class="w-full bg-gray-950 border-2 border-amber-500/80 rounded-xl px-4 py-2.5 text-sm font-mono font-bold text-emerald-400 focus:outline-none focus:border-amber-400"
+                />
+              </div>
+
+              <!-- Original MRP (For discount display) -->
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5">
+                  Original MRP / Display Price (₹)
+                </label>
+                <input 
+                  type="number" 
+                  id="admin-product-mrp" 
+                  min="1"
+                  placeholder="e.g. 6499 (Optional, shows discount)"
+                  class="w-full bg-gray-950 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-gray-300 focus:outline-none focus:border-amber-500"
+                />
+              </div>
+            </div>
+
+            <!-- Product Image Section (URL, File Upload & Presets) -->
+            <div class="p-4 rounded-xl bg-gray-950/80 border border-gray-800 space-y-3">
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-200">
+                Product Photo (Choose from Presets, Enter URL, or Upload Device Photo)
+              </label>
+
+              <!-- Image URL Input -->
+              <input 
+                type="text" 
+                id="admin-product-image" 
+                placeholder="Enter image URL (https://...)" 
+                oninput="updateAdminImagePreview(this.value)"
+                class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500"
+              />
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <!-- Preset Pick -->
+                <div>
+                  <select id="admin-preset-images" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 text-xs text-gray-300 focus:outline-none focus:border-amber-500">
+                    <!-- Populated dynamically -->
+                  </select>
+                </div>
+
+                <!-- Device File Upload -->
+                <div>
+                  <label class="cursor-pointer flex items-center justify-center gap-2 px-3 py-2 bg-gray-900 hover:bg-gray-800 text-cyan-400 text-xs font-semibold rounded-lg border border-gray-700 transition">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <span>Upload Photo from Phone/PC</span>
+                    <input type="file" id="admin-product-file" accept="image/*" class="hidden" />
+                  </label>
+                </div>
+              </div>
+
+              <!-- Image Preview Box -->
+              <div id="admin-image-preview-box" class="hidden mt-2 p-2 bg-gray-900 rounded-lg border border-gray-800 flex items-center gap-3">
+                <img id="admin-image-preview" src="" alt="Preview" class="w-14 h-14 object-cover rounded-md bg-gray-950" />
+                <span class="text-xs text-gray-400">Photo preview loaded</span>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">
+                Product Description
+              </label>
+              <textarea 
+                id="admin-product-desc" 
+                rows="3" 
+                placeholder="Describe material, willow grade, weight balance, warranty, or target players..."
+                class="w-full bg-gray-950 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500"
+              ></textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Available Sizes / Variations -->
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">
+                  Available Sizes / Variations (Comma separated)
+                </label>
+                <input 
+                  type="text" 
+                  id="admin-product-sizes" 
+                  placeholder="e.g. Full Size (SH), Short Handle, Harrow, UK 8, UK 9"
+                  class="w-full bg-gray-950 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500"
+                />
+              </div>
+
+              <!-- Badge / Tag -->
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">
+                  Product Highlight Badge
+                </label>
+                <input 
+                  type="text" 
+                  id="admin-product-badge" 
+                  placeholder="e.g. Bestseller / New Launch / Match Grade / Hot Deal"
+                  class="w-full bg-gray-950 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-500"
+                />
+              </div>
+            </div>
+
+            <!-- Toggles: Stock & Featured -->
+            <div class="flex flex-wrap items-center gap-6 pt-2">
+              <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-gray-300">
+                <input type="checkbox" id="admin-product-stock" checked class="w-4 h-4 rounded text-red-600 bg-gray-950 border-gray-700 focus:ring-0" />
+                <span>Mark Available in Stock</span>
+              </label>
+
+              <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-gray-300">
+                <input type="checkbox" id="admin-product-featured" class="w-4 h-4 rounded text-amber-500 bg-gray-950 border-gray-700 focus:ring-0" />
+                <span>Feature on Homepage Highlights</span>
+              </label>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-4 border-t border-gray-800">
+              <button 
+                type="submit" 
+                class="w-full py-3 px-6 rounded-xl text-sm font-black uppercase tracking-wider bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-gray-950 shadow-xl transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>Publish Product to Store Catalog</span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- TAB 3: CUSTOMER ORDERS & ADVANCE PAYMENTS -->
+      <div id="admin-tab-orders" class="admin-tab-content hidden">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-sm font-bold uppercase text-white tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-receipt text-amber-400"></i>
+            <span>Orders Received (With ₹249 Advance Verification)</span>
+          </h3>
+          <span class="text-xs text-gray-400">Owner Contact: 8638036662</span>
+        </div>
+
+        <div class="overflow-x-auto rounded-xl border border-gray-800 bg-gray-900/60">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="border-b border-gray-800 bg-gray-900/90 text-gray-400 uppercase tracking-wider font-bold">
+                <th class="p-3">Order ID & Date</th>
+                <th class="p-3">Customer & Delivery City</th>
+                <th class="p-3">Ordered Items</th>
+                <th class="p-3">₹249 Advance Token</th>
+                <th class="p-3">Status</th>
+                <th class="p-3 text-right">Customer Chat</th>
+              </tr>
+            </thead>
+            <tbody id="admin-orders-tbody">
+              <!-- Dynamically Populated by App.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HERO SECTION -->
+  <section id="store-home" class="relative hero-energy-bg pt-12 pb-16 overflow-hidden border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left Hero Copy -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-950/80 border border-red-500/40 text-red-400 text-xs font-bold tracking-wider uppercase">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+            WARIS SPORTS • OFFICIAL STORE
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl font-black text-white leading-none tracking-tight">
+            PLAY HARDER. <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-amber-400 to-cyan-400">
+              STRIKE GREATER.
+            </span>
+          </h1>
+
+          <p class="text-gray-300 text-sm sm:text-base max-w-xl leading-relaxed">
+            Direct handcrafted Grade-1 English willow bats, tournament racquets, professional gym gear & customized team kits. Hand-inspected and match-tested by certified coaches.
+          </p>
+
+          <!-- Store Contact Quick Pills -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="tel:8638036662" class="px-4 py-2.5 rounded-xl bg-gray-900/90 border border-gray-700 hover:border-red-500 text-white text-xs font-bold transition flex items-center gap-2">
+              <i class="fa-solid fa-phone text-red-500"></i>
+              <span>Call: <strong>8638036662</strong></span>
+            </a>
+
+            <a href="https://instagram.com/warissports2024" target="_blank" class="px-4 py-2.5 rounded-xl bg-gray-900/90 border border-gray-700 hover:border-pink-500 text-white text-xs font-bold transition flex items-center gap-2">
+              <i class="fa-brands fa-instagram text-pink-500 text-sm"></i>
+              <span>IG: <strong>@warissports2024</strong></span>
+            </a>
+
+            <a href="https://wa.me/918638036662" target="_blank" class="px-4 py-2.5 rounded-xl bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 hover:text-white text-xs font-bold transition flex items-center gap-2">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+              <span>WhatsApp Direct</span>
+            </a>
+          </div>
+
+          <!-- Hero CTAs -->
+          <div class="flex flex-wrap items-center gap-4 pt-4">
+            <a href="#products-section" class="px-6 py-3.5 rounded-xl btn-primary-sport text-sm font-bold flex items-center gap-2">
+              <i class="fa-solid fa-fire"></i>
+              <span>Explore Equipment</span>
+            </a>
+
+            <a href="#jersey-customizer" class="px-6 py-3.5 rounded-xl bg-gray-900/90 hover:bg-gray-800 text-cyan-400 border border-cyan-500/30 text-sm font-bold transition flex items-center gap-2">
+              <i class="fa-solid fa-shirt"></i>
+              <span>Custom Team Jersey</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual / Featured Product Highlight -->
+        <div class="lg:col-span-5">
+          <div class="relative rounded-3xl p-6 bg-gradient-to-b from-gray-900 to-gray-950 border border-gray-800 shadow-2xl">
+            <!-- Glow circle -->
+            <div class="absolute -top-10 -right-10 w-44 h-44 bg-red-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex items-center justify-between pb-4 border-b border-gray-800">
+              <span class="text-xs font-black uppercase tracking-wider text-red-500">
+                <i class="fa-solid fa-bolt mr-1"></i> Top Sellers in Shop
+              </span>
+              <span class="text-[10px] text-gray-400 font-mono">WARIS SPORTS</span>
+            </div>
+
+            <!-- Featured Items Stack -->
+            <div id="featured-grid" class="space-y-3 mt-4">
+              <!-- Dynamically populated -->
+            </div>
+
+            <!-- ₹249 Advance Security Seal -->
+            <div class="mt-4 p-3.5 rounded-xl bg-amber-950/40 border border-amber-500/30 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg flex-shrink-0">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-black text-white uppercase tracking-wider">₹249 Advance Token System</h4>
+                <p class="text-[11px] text-gray-300 leading-tight mt-0.5">
+                  Confirm your order with ₹249 token. The rest is collected upon safe doorstep delivery.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MANDATORY ₹249 ADVANCE PAYMENT POLICY BANNER -->
+  <section class="bg-gradient-to-r from-gray-950 via-gray-900 to-gray-950 py-6 border-b border-gray-800 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="advance-token-card p-5 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-5">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center text-xl shadow-lg shadow-red-900/50 flex-shrink-0">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="bg-red-600 text-white text-[10px] font-black uppercase px-2 py-0.5 rounded">Store Mandatory Rule</span>
+              <h3 class="text-base sm:text-lg font-black text-white uppercase tracking-wide">
+                Pay ₹249 Advance Before Placing Your Order
+              </h3>
+            </div>
+            <p class="text-xs text-gray-300 mt-1 max-w-2xl leading-relaxed">
+              To verify genuine buyer intent and lock inventory with our courier partners, an advance token of <strong class="text-white font-bold">₹249</strong> is collected before dispatch. 
+              The balance amount is payable on <strong class="text-emerald-400">Cash on Delivery (COD) / Doorstep UPI</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 flex-shrink-0">
+          <div class="text-right hidden sm:block">
+            <span class="text-[10px] text-gray-400 block uppercase font-mono">Store Contact</span>
+            <span class="text-sm font-black text-white font-mono">8638036662</span>
+          </div>
+          <a href="https://wa.me/918638036662?text=Hello%20Waris%20Sports!%20I%20have%20a%20question%20regarding%20the%20249%20advance%20payment%20order." target="_blank" class="px-4 py-2 rounded-xl bg-gray-900 hover:bg-gray-800 text-white border border-gray-700 text-xs font-bold transition flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+            <span>Ask Owner</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CATALOG SECTION -->
+  <section id="products-section" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex-1 w-full">
+    
+    <!-- Category Navigation Pills Bar -->
+    <div class="flex items-center justify-between gap-4 border-b border-gray-800 pb-4 overflow-x-auto">
+      <div class="flex items-center gap-2" id="category-pills-list">
+        <button data-category="all" class="cat-filter-btn category-pill active px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-gray-900 text-gray-300 border border-gray-800 hover:border-gray-600 transition whitespace-nowrap">
+          <i class="fa-solid fa-shapes mr-1.5"></i> All Sports
+        </button>
+
+        <button data-category="cricket" class="cat-filter-btn category-pill px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-gray-900 text-gray-300 border border-gray-800 hover:border-gray-600 transition whitespace-nowrap">
+          🏏 Cricket Bats & Balls
+        </button>
+
+        <button data-category="football" class="cat-filter-btn category-pill px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-gray-900 text-gray-300 border border-gray-800 hover:border-gray-600 transition whitespace-nowrap">
+          ⚽ Football & Boots
+        </button>
+
+        <button data-category="badminton" class="cat-filter-btn category-pill px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-gray-900 text-gray-300 border border-gray-800 hover:border-gray-600 transition whitespace-nowrap">
+          🏸 Badminton & Rackets
+        </button>
+
+        <button data-category="fitness" class="cat-filter-btn category-pill px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-gray-900 text-gray-300 border border-gray-800 hover:border-gray-600 transition whitespace-nowrap">
+          🏋️ Gym & Fitness
+        </button>
+
+        <button data-category="running" class="cat-filter-btn category-pill px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-gray-900 text-gray-300 border border-gray-800 hover:border-gray-600 transition whitespace-nowrap">
+          🏃 Running & Shoes
+        </button>
+
+        <button data-category="apparel" class="cat-filter-btn category-pill px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-gray-900 text-gray-300 border border-gray-800 hover:border-gray-600 transition whitespace-nowrap">
+          🎽 Kits & Apparel
+        </button>
+      </div>
+
+      <span id="products-count-badge" class="hidden sm:inline-block text-xs font-mono font-bold text-gray-400 bg-gray-900 px-3 py-1.5 rounded-lg border border-gray-800 whitespace-nowrap">
+        Loading Gear...
+      </span>
+    </div>
+
+    <!-- Filter & Sort Toolbar -->
+    <div class="mt-6 p-4 rounded-2xl bg-gray-900/60 border border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
+      
+      <!-- Price Range Slider -->
+      <div class="flex items-center gap-3 w-full md:w-auto">
+        <span class="text-xs text-gray-400 font-semibold whitespace-nowrap">Max Price:</span>
+        <input 
+          type="range" 
+          id="price-filter-slider" 
+          min="200" 
+          max="30000" 
+          step="500" 
+          value="30000" 
+          class="w-36 sm:w-48 accent-red-600 cursor-pointer"
+        />
+        <span id="price-filter-display" class="text-xs font-mono font-bold text-cyan-400 min-w-[70px]">₹30,000</span>
+      </div>
+
+      <!-- Sort & Reset -->
+      <div class="flex items-center gap-3 w-full md:w-auto justify-end">
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-gray-400 font-semibold">Sort By:</span>
+          <select id="sort-products-select" class="bg-gray-950 border border-gray-800 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-red-500">
+            <option value="featured">Featured Picks</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Top Rated by Athletes</option>
+          </select>
+        </div>
+
+        <button onclick="resetFilters()" class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white text-xs transition" title="Clear Filters">
+          <i class="fa-solid fa-arrows-rotate"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- PRODUCTS GRID -->
+    <div id="products-grid" class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Populated dynamically by app.js -->
+    </div>
+
+  </section>
+
+  <!-- INTERACTIVE CUSTOM TEAM JERSEY DESIGNER -->
+  <section id="jersey-customizer" class="py-16 bg-gray-950 border-t border-b border-gray-800 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-black uppercase tracking-widest text-red-500">Waris Sports Customization Studio</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">
+          Customize Your Team Kit & Jersey
+        </h2>
+        <p class="text-xs sm:text-sm text-gray-400 mt-2">
+          High-definition thermal sublimation jersey with your custom player name and jersey number. Ready in 48 hours!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Live SVG Jersey Preview -->
+        <div class="lg:col-span-6 flex justify-center">
+          <div class="jersey-preview-container p-8 w-full max-w-md flex flex-col items-center justify-center">
+            
+            <svg id="custom-jersey-svg" class="jersey-svg w-64 h-72" viewBox="0 0 300 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Jersey Body -->
+              <path id="svg-jersey-body" d="M90 30 L130 50 L170 50 L210 30 L270 85 L235 125 L215 105 L215 290 L85 290 L85 105 L65 125 L30 85 Z" fill="#ff3838" stroke="#ffffff" stroke-width="2" />
+              <!-- Sleeves accent -->
+              <path class="svg-jersey-accent" d="M30 85 L65 125 L75 115 L45 75 Z" fill="#ffffff" />
+              <path class="svg-jersey-accent" d="M270 85 L235 125 L225 115 L255 75 Z" fill="#ffffff" />
+              <!-- Collar -->
+              <path d="M125 47 Q150 75 175 47" stroke="#ffffff" stroke-width="4" fill="none" />
+              <!-- Shop Logo Badge -->
+              <circle cx="115" cy="100" r="12" fill="#0b0f19" stroke="#ffffff" stroke-width="1.5" />
+              <text x="115" y="103" text-anchor="middle" font-family="'Oswald'" font-size="8" font-weight="900" fill="#ff3838">WS</text>
+              <!-- Player Name -->
+              <text id="svg-jersey-name" x="150" y="130" text-anchor="middle" font-family="'Oswald'" font-size="20" font-weight="900" fill="#ffffff" letter-spacing="3">WARIS</text>
+              <!-- Player Number -->
+              <text id="svg-jersey-number" x="150" y="215" text-anchor="middle" font-family="'Oswald'" font-size="75" font-weight="900" fill="#ffffff">10</text>
+              <!-- Sponsor / Shop Mark -->
+              <text x="150" y="260" text-anchor="middle" font-family="'Plus Jakarta Sans'" font-size="9" font-weight="700" fill="#ffffff" opacity="0.8">WARIS SPORTS 2024</text>
+            </svg>
+
+            <span class="text-[11px] text-gray-400 mt-4 font-mono">Live Interactive Mockup (Front/Back)</span>
+          </div>
+        </div>
+
+        <!-- Customizer Controls -->
+        <div class="lg:col-span-6 bg-gray-900/80 border border-gray-800 rounded-3xl p-6 sm:p-8">
+          <div class="flex items-center justify-between pb-4 border-b border-gray-800">
+            <h3 class="text-lg font-bold text-white uppercase tracking-wider">Kit Specifications</h3>
+            <span class="text-xl font-black text-emerald-400 font-mono">₹699 <span class="text-xs text-gray-500 font-normal">/ piece</span></span>
+          </div>
+
+          <div class="space-y-4 mt-6">
+            <!-- Player Name -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Player Name Printed on Back:</label>
+              <input 
+                type="text" 
+                id="jersey-custom-name" 
+                maxlength="14" 
+                value="WARIS" 
+                class="w-full bg-gray-950 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white uppercase font-bold tracking-wider focus:outline-none focus:border-red-500"
+              />
+            </div>
+
+            <!-- Player Number -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Jersey Number (00 - 99):</label>
+              <input 
+                type="number" 
+                id="jersey-custom-number" 
+                min="0" 
+                max="99" 
+                value="10" 
+                class="w-full bg-gray-950 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white font-mono font-bold focus:outline-none focus:border-red-500"
+              />
+            </div>
+
+            <!-- Color Palette -->
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Team Primary Color:</label>
+                <div class="flex items-center gap-2">
+                  <input type="color" id="jersey-primary-color" value="#ff3838" class="w-10 h-10 rounded-lg cursor-pointer bg-transparent border-0" />
+                  <span class="text-xs text-gray-400">Main Body</span>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Accent Trim Color:</label>
+                <div class="flex items-center gap-2">
+                  <input type="color" id="jersey-accent-color" value="#ffffff" class="w-10 h-10 rounded-lg cursor-pointer bg-transparent border-0" />
+                  <span class="text-xs text-gray-400">Trim & Sleeves</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Token Policy Reminder -->
+            <div class="p-3 rounded-xl bg-gray-950/80 border border-gray-800 text-xs text-gray-300 flex items-center gap-2">
+              <i class="fa-solid fa-circle-check text-emerald-400"></i>
+              <span>Advance token of ₹249 confirms custom jersey sublimation & printing!</span>
+            </div>
+
+            <button 
+              onclick="orderCustomJersey()" 
+              class="w-full py-3.5 px-6 rounded-xl btn-primary-sport text-sm font-bold flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i>
+              <span>Order Customized Jersey (Pay ₹249 Advance)</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WORKSHOP SERVICES SECTION -->
+  <section id="workshop-services" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-xs font-black uppercase tracking-widest text-cyan-400">Waris Sports In-House Workshop</span>
+      <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">
+        Professional Workshop & Bat Knocking
+      </h2>
+      <p class="text-xs sm:text-sm text-gray-400 mt-2">
+        Factory-level bat conditioning, electronic racket restringing, and handle replacement with high precision machines.
+      </p>
+    </div>
+
+    <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Dynamically Populated by App.js -->
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-16 bg-gray-950/60 border-t border-gray-800 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <span class="text-xs font-black uppercase tracking-widest text-amber-400">Athletes & Academy Coaches</span>
+        <h2 class="text-3xl font-black text-white mt-1">Trusted By Champions</h2>
+      </div>
+
+      <div id="testimonials-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Dynamically Populated by App.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT & STORE IDENTITY FOOTER -->
+  <footer class="bg-gray-950 border-t border-gray-800 pt-16 pb-24 lg:pb-12 text-xs text-gray-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-gray-800">
+        
+        <!-- Col 1: Brand Info -->
+        <div class="space-y-4">
+          <div class="font-heading font-black text-2xl text-white tracking-wider flex items-center gap-1.5">
+            WARIS <span class="text-red-500">SPORTS</span>
+          </div>
+          <p class="text-xs leading-relaxed text-gray-400">
+            Premium destination for authentic sports equipment, English Willow bats, tournament racquets, gym supplies, and custom team kits.
+          </p>
+          <div class="flex items-center gap-3">
+            <a href="https://instagram.com/warissports2024" target="_blank" class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-700 hover:border-pink-500 text-pink-400 hover:text-white flex items-center justify-center transition">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/918638036662" target="_blank" class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-700 hover:border-emerald-500 text-emerald-400 hover:text-white flex items-center justify-center transition">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="tel:8638036662" class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-700 hover:border-red-500 text-red-400 hover:text-white flex items-center justify-center transition">
+              <i class="fa-solid fa-phone"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Direct Owner Contacts -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black uppercase tracking-wider text-white">Direct Owner Contacts</h4>
+          <ul class="space-y-2.5">
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-phone text-red-500 w-4"></i>
+              <span>Phone / Call: <strong class="text-white">8638036662</strong></span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-brands fa-whatsapp text-emerald-400 w-4"></i>
+              <a href="https://wa.me/918638036662" target="_blank" class="hover:underline">WhatsApp: <strong class="text-white">+91 8638036662</strong></a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-brands fa-instagram text-pink-500 w-4"></i>
+              <a href="https://instagram.com/warissports2024" target="_blank" class="hover:underline">Instagram: <strong class="text-white">@warissports2024</strong></a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-store text-cyan-400 w-4"></i>
+              <span>Shop Name: <strong class="text-white">WARIS SPORTS</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Advance Policy Notice -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black uppercase tracking-wider text-white">Advance Token Security</h4>
+          <p class="leading-relaxed">
+            Every order requires a nominal advance token payment of <strong>₹249</strong> before packing and courier handover.
+          </p>
+          <div class="p-3 bg-gray-900/90 rounded-xl border border-gray-800">
+            <span class="text-[10px] text-amber-400 font-bold block">100% SECURE POLICY</span>
+            <span class="text-[11px] text-gray-300 mt-0.5 block">Zero risk: advance gets deducted from your total bill!</span>
+          </div>
+        </div>
+
+        <!-- Col 4: Store Hours -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black uppercase tracking-wider text-white">Store Hours</h4>
+          <p>Monday – Saturday: 9:00 AM – 9:30 PM</p>
+          <p>Sunday: 10:00 AM – 8:00 PM</p>
+          <p class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Open for Online Dispatches Across India</p>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Bottom Line -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-gray-500 text-[11px]">
+        <div>
+          © 2024 <strong class="text-gray-300">WARIS SPORTS</strong>. All Rights Reserved. Contact: 8638036662 | Instagram: warissports2024
+        </div>
+        <div class="flex items-center gap-4">
+          <button onclick="toggleAdminMode()" class="hover:text-amber-400 transition font-mono">Owner Portal Login</button>
+          <span>•</span>
+          <span>Fast Sports Courier</span>
+          <span>•</span>
+          <span>Match Ready Equipment</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- MOBILE BOTTOM ACTION BAR -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 mobile-bottom-bar flex items-center justify-around py-2.5 px-4 lg:hidden">
+    <a href="#store-home" class="flex flex-col items-center gap-1 text-[10px] font-bold text-gray-400 hover:text-white">
+      <i class="fa-solid fa-house text-base"></i>
+      <span>Home</span>
+    </a>
+
+    <a href="#products-section" class="flex flex-col items-center gap-1 text-[10px] font-bold text-gray-400 hover:text-white">
+      <i class="fa-solid fa-shapes text-base"></i>
+      <span>Gear</span>
+    </a>
+
+    <button id="mobile-cart-btn" class="flex flex-col items-center gap-1 text-[10px] font-bold text-red-500 relative">
+      <i class="fa-solid fa-cart-shopping text-base"></i>
+      <span>Cart</span>
+      <span id="mobile-cart-count" class="hidden absolute -top-1 -right-2 px-1.5 py-0.2 rounded-full bg-red-600 text-white text-[9px] font-mono">0</span>
+    </button>
+
+    <a href="https://wa.me/918638036662" target="_blank" class="flex flex-col items-center gap-1 text-[10px] font-bold text-emerald-400">
+      <i class="fa-brands fa-whatsapp text-base"></i>
+      <span>Chat</span>
+    </a>
+
+    <button id="mobile-admin-btn" onclick="toggleAdminMode()" class="flex flex-col items-center gap-1 text-[10px] font-bold text-gray-400 hover:text-amber-400">
+      <i class="fa-solid fa-shield-halved text-base"></i>
+      <span>Owner</span>
+    </button>
+  </div>
+
+  <!-- FLOATING WHATSAPP CHAT BUTTON -->
+  <a 
+    href="https://wa.me/918638036662?text=Hello%20Waris%20Sports!%20I%20am%20browsing%20your%20website%20and%20need%20assistance."
+    target="_blank"
+    class="fixed bottom-20 sm:bottom-8 right-6 z-40 w-14 h-14 rounded-full btn-whatsapp flex items-center justify-center text-white text-2xl shadow-2xl hover:scale-110 transition duration-300"
+    title="Chat with Waris Sports on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- SLIDE-OVER CART DRAWER -->
+  <div id="cart-drawer-backdrop" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm drawer-backdrop flex justify-end">
+    <div id="cart-drawer-panel" class="w-full max-w-md h-full bg-gray-950 border-l border-gray-800 drawer-panel flex flex-col justify-between shadow-2xl">
+      
+      <!-- Drawer Header -->
+      <div class="p-5 border-b border-gray-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-cart-shopping text-red-500 text-lg"></i>
+          <h3 class="text-base font-black uppercase text-white tracking-wider">Your Sports Bag</h3>
+        </div>
+        <button id="close-cart-btn" class="p-2 text-gray-400 hover:text-white rounded-lg">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Advance Payment Notice in Cart -->
+      <div class="p-4 mx-4 mt-4 rounded-xl bg-gradient-to-r from-red-950/70 to-amber-950/50 border border-red-500/30 text-xs">
+        <div class="flex items-center gap-2 text-amber-300 font-bold uppercase tracking-wider text-[10px]">
+          <i class="fa-solid fa-shield-check"></i>
+          <span>Mandatory Advance Policy</span>
+        </div>
+        <p class="text-gray-300 text-[11px] mt-1 leading-snug">
+          Pay <strong>₹249 Advance Token</strong> now to confirm order packing. The remaining balance is payable on Cash on Delivery (COD)!
+        </p>
+      </div>
+
+      <!-- Cart Items List Container -->
+      <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 space-y-3">
+        <!-- Dynamically Populated by App.js -->
+      </div>
+
+      <!-- Drawer Footer & Payment Summary -->
+      <div class="p-5 border-t border-gray-800 bg-gray-950 space-y-3">
+        
+        <div class="space-y-1.5 text-xs text-gray-400">
+          <div class="flex justify-between">
+            <span>Items Subtotal:</span>
+            <span id="cart-subtotal" class="font-mono text-white font-bold">₹0</span>
+          </div>
+
+          <div class="flex justify-between text-amber-400 font-bold">
+            <span class="flex items-center gap-1"><i class="fa-solid fa-receipt text-xs"></i> Advance Token (Pay Now):</span>
+            <span id="cart-advance-fee" class="font-mono">₹249</span>
+          </div>
+
+          <div class="flex justify-between text-emerald-400 font-bold pt-1 border-t border-gray-800">
+            <span>Balance Due on Delivery (COD):</span>
+            <span id="cart-balance-due" class="font-mono">₹0</span>
+          </div>
+        </div>
+
+        <button 
+          id="cart-checkout-btn"
+          onclick="openCheckoutModal()"
+          class="w-full py-3.5 px-6 rounded-xl btn-primary-sport text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>Proceed to Pay ₹249 Advance</span>
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL: 2-STEP MANDATORY ₹249 ADVANCE PAYMENT FLOW -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
+    <div class="modal-card w-full max-w-xl bg-gray-950 border border-gray-800 rounded-3xl overflow-hidden shadow-2xl my-8">
+      
+      <!-- Modal Header -->
+      <div class="p-5 bg-gradient-to-r from-gray-900 to-gray-950 border-b border-gray-800 flex items-center justify-between">
+        <div>
+          <span class="text-[10px] font-black uppercase text-red-500 tracking-wider">WARIS SPORTS ORDER DESK</span>
+          <h3 class="text-lg font-black text-white uppercase">Checkout & Advance Token</h3>
+        </div>
+        <button class="modal-close-trigger p-2 text-gray-400 hover:text-white rounded-lg">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6">
+        
+        <!-- STEP 1: DELIVERY & BUYER INFORMATION -->
+        <div id="checkout-step-1" class="space-y-4">
+          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cyan-400 pb-2 border-b border-gray-800">
+            <span class="w-5 h-5 rounded-full bg-cyan-400 text-gray-950 flex items-center justify-center text-[10px] font-black">1</span>
+            <span>Buyer Delivery Information</span>
+          </div>
+
+          <form id="checkout-shipping-form" class="space-y-3">
+            <div>
+              <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Full Name *</label>
+              <input type="text" id="ship-name" required placeholder="e.g. Tariq Siddiqui" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-red-500" />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Mobile Number (WhatsApp) *</label>
+                <input type="tel" id="ship-phone" required pattern="[0-9]{10}" placeholder="10-digit mobile number" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-red-500" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Alternate Phone (Optional)</label>
+                <input type="tel" id="ship-alt-phone" placeholder="Emergency backup number" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-red-500" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Shipping Street Address & Landmark *</label>
+              <textarea id="ship-address" required rows="2" placeholder="House/Flat No, Apartment, Landmark, Locality" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-red-500"></textarea>
+            </div>
+
+            <div class="grid grid-cols-3 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-gray-300 uppercase mb-1">City *</label>
+                <input type="text" id="ship-city" required placeholder="e.g. Guwahati" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-gray-300 uppercase mb-1">State *</label>
+                <input type="text" id="ship-state" required placeholder="e.g. Assam" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-gray-300 uppercase mb-1">PIN Code *</label>
+                <input type="text" id="ship-pincode" required pattern="[0-9]{6}" placeholder="6 digits" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Special Order / Bat Knocking Notes</label>
+              <input type="text" id="ship-notes" placeholder="e.g. Need bat knocking done before dispatch" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-red-500" />
+            </div>
+
+            <!-- Price Summary -->
+            <div class="mt-4 p-3.5 bg-gray-900/90 rounded-xl border border-gray-800 space-y-1.5 text-xs">
+              <div class="flex justify-between text-gray-400">
+                <span>Total Items Amount:</span>
+                <span id="checkout-subtotal" class="font-mono text-white font-bold">₹0</span>
+              </div>
+              <div class="flex justify-between text-amber-400 font-bold">
+                <span>Advance Token To Pay Now:</span>
+                <span id="checkout-advance-fee" class="font-mono">₹249</span>
+              </div>
+              <div class="flex justify-between text-emerald-400 font-bold border-t border-gray-800 pt-1">
+                <span>Balance Payable on Delivery:</span>
+                <span id="checkout-balance-due" class="font-mono">₹0</span>
+              </div>
+            </div>
+
+            <button 
+              type="button" 
+              onclick="goToAdvancePaymentStep()" 
+              class="w-full py-3.5 px-6 rounded-xl btn-primary-sport text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 mt-4 shadow-xl">
+              <span>Next: Pay ₹249 Advance Token</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- STEP 2: MANDATORY ₹249 UPI ADVANCE PAYMENT SCREEN -->
+        <div id="checkout-step-2" class="hidden space-y-5">
+          <div class="flex items-center justify-between pb-2 border-b border-gray-800">
+            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400">
+              <span class="w-5 h-5 rounded-full bg-amber-400 text-gray-950 flex items-center justify-center text-[10px] font-black">2</span>
+              <span>Mandatory Token Deposit: ₹249</span>
+            </div>
+            <button onclick="backToShippingStep()" class="text-xs text-gray-400 hover:text-white underline">
+              Edit Details
+            </button>
+          </div>
+
+          <!-- Dynamic QR Code & Payment Info Box -->
+          <div class="p-6 rounded-2xl bg-gradient-to-b from-gray-900 to-gray-950 border border-gray-800 text-center flex flex-col items-center">
+            
+            <span class="text-xs font-black uppercase tracking-wider text-red-500 mb-2">Scan & Pay via Any UPI App</span>
+            
+            <!-- UPI QR Wrapper -->
+            <div class="upi-qr-wrapper my-2">
+              <img id="upi-qr-image" src="" alt="UPI QR Code for ₹249" class="w-48 h-48 rounded-lg" />
+              <div class="mt-2 text-[10px] font-black uppercase text-gray-800 font-mono tracking-widest">
+                WARIS SPORTS • ₹249
+              </div>
+            </div>
+
+            <div class="mt-3 space-y-1">
+              <div class="text-xs text-gray-300">
+                Shop: <strong class="text-white">WARIS SPORTS</strong> | Phone: <strong class="text-white">8638036662</strong>
+              </div>
+              <div class="flex items-center justify-center gap-2">
+                <span class="text-xs font-mono font-bold text-amber-400 bg-gray-950 px-3 py-1 rounded-lg border border-gray-800">
+                  UPI ID: 8638036662@upi
+                </span>
+                <button onclick="copyUpiId()" class="px-2.5 py-1 bg-gray-800 hover:bg-gray-700 text-cyan-400 text-xs rounded-lg transition" title="Copy UPI ID">
+                  <i class="fa-regular fa-copy"></i> Copy
+                </button>
+              </div>
+            </div>
+
+            <!-- Mobile Direct Pay Button -->
+            <div class="w-full mt-4">
+              <a 
+                id="direct-upi-pay-link" 
+                href="#" 
+                class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-purple-700 to-indigo-600 hover:from-purple-600 hover:to-indigo-500 text-white text-xs font-bold flex items-center justify-center gap-2 transition shadow-lg">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <span>Open GPay / PhonePe / Paytm to Pay ₹249</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Payment Verification Section -->
+          <div class="space-y-3">
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-200">
+              Enter 12-Digit UPI Reference / UTR Number:
+            </label>
+            <div class="flex gap-2">
+              <input 
+                type="text" 
+                id="payment-utr-input" 
+                placeholder="e.g. 432109876543 (From your UPI app receipt)" 
+                class="flex-1 bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-red-500"
+              />
+              <button 
+                type="button" 
+                onclick="verifyPaymentAndPlaceOrder(true)" 
+                class="px-4 py-2.5 bg-gray-800 hover:bg-gray-700 text-cyan-400 border border-gray-700 rounded-xl text-xs font-bold transition whitespace-nowrap"
+                title="Instant test verification for demonstration">
+                <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Simulate Pay
+              </button>
+            </div>
+            <p class="text-[11px] text-gray-400">
+              After transferring ₹249, paste the 12-digit transaction ID or click "Simulate Pay" to verify instantly.
+            </p>
+
+            <button 
+              type="button" 
+              onclick="verifyPaymentAndPlaceOrder(false)" 
+              class="w-full py-3.5 px-6 rounded-xl btn-primary-sport text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 mt-4 shadow-xl">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Verify ₹249 Advance & Confirm Order</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- STEP 3: ORDER CONFIRMED SUCCESS SCREEN -->
+        <div id="checkout-step-3" class="hidden text-center py-6 space-y-6">
+          <div class="w-16 h-16 mx-auto rounded-full bg-emerald-500/20 text-emerald-400 border-2 border-emerald-500 flex items-center justify-center text-3xl animate-bounce">
+            <i class="fa-solid fa-check"></i>
+          </div>
+
+          <div>
+            <span class="text-xs font-black uppercase tracking-widest text-emerald-400">Advance Payment Confirmed</span>
+            <h2 class="text-2xl font-black text-white mt-1">Order Successfully Placed!</h2>
+            <p class="text-xs text-gray-300 mt-1">
+              Your ₹249 advance has been verified. Waris Sports will pack and dispatch your sports equipment within 24 hours.
+            </p>
+          </div>
+
+          <!-- Printable Receipt Card -->
+          <div id="printable-receipt" class="p-5 rounded-2xl bg-gray-900 border border-gray-800 text-left space-y-3 text-xs">
+            <div class="flex justify-between items-center pb-2 border-b border-gray-800">
+              <div>
+                <span class="font-heading font-black text-white text-base">WARIS SPORTS</span>
+                <span class="text-[10px] text-gray-400 block">Contact: 8638036662 | IG: @warissports2024</span>
+              </div>
+              <span id="confirm-order-id" class="font-mono font-bold text-cyan-400 text-sm">#WS-98421</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 text-[11px]">
+              <div>
+                <span class="text-gray-400 block">Customer:</span>
+                <strong id="confirm-customer-name" class="text-white"></strong>
+              </div>
+              <div>
+                <span class="text-gray-400 block">Mobile:</span>
+                <strong id="confirm-phone" class="text-white"></strong>
+              </div>
+              <div>
+                <span class="text-gray-400 block">Advance Token Paid:</span>
+                <strong id="confirm-advance-paid" class="text-emerald-400 font-mono font-bold">₹249.00</strong>
+              </div>
+              <div>
+                <span class="text-gray-400 block">Balance on Delivery:</span>
+                <strong id="confirm-balance-due" class="text-amber-400 font-mono font-bold"></strong>
+              </div>
+              <div class="col-span-2">
+                <span class="text-gray-400 block">UPI Transaction Reference:</span>
+                <span id="confirm-utr" class="font-mono text-cyan-300"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- WhatsApp Direct Confirmation CTA -->
+          <div class="space-y-3">
+            <a 
+              id="confirm-whatsapp-order-btn" 
+              href="#" 
+              target="_blank"
+              class="w-full py-3.5 px-6 rounded-xl btn-whatsapp text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>Send Receipt to Owner on WhatsApp (8638036662)</span>
+            </a>
+
+            <div class="flex gap-3">
+              <button onclick="printCurrentOrderReceipt()" class="flex-1 py-2.5 px-4 bg-gray-800 hover:bg-gray-700 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-print"></i> Print Invoice
+              </button>
+              <button onclick="closeAllModals()" class="flex-1 py-2.5 px-4 bg-gray-900 hover:bg-gray-800 text-gray-300 rounded-xl text-xs font-bold border border-gray-700 transition">
+                Continue Shopping
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- QUICK VIEW PRODUCT MODAL -->
+  <div id="quick-view-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
+    <div class="modal-card w-full max-w-3xl bg-gray-950 border border-gray-800 rounded-3xl overflow-hidden shadow-2xl relative my-8">
+      
+      <!-- Close button -->
+      <button class="modal-close-trigger absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-gray-900/80 hover:bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center border border-gray-700 transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Content Container -->
+      <div id="quick-view-content" class="p-6 sm:p-8">
+        <!-- Dynamically injected by App.js -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATIONS CONTAINER -->
+  <div id="toast-container"></div>
+
+  <!-- SCRIPTS -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
