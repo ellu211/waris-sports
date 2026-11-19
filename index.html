@@ -49,9 +49,9 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-1.5 text-center md:text-left">
       <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 font-medium">
         <span class="bg-black/30 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider text-amber-300">
-          <i class="fa-solid fa-shield-halved mr-1"></i> Order Policy
+          <i class="fa-solid fa-bolt mr-1"></i> Fast Checkout
         </span>
-        <span>Before ordering, buyer must pay <strong class="underline decoration-white font-black text-amber-200">₹249 Advance Token</strong> | Balance on Delivery</span>
+        <span>Secure Mobile OTP Login & Instant Online UPI Payment | Free Express Delivery Across India</span>
         <span class="hidden lg:inline text-white/50">|</span>
         <span class="hidden lg:inline text-[11px] text-amber-200"><i class="fa-solid fa-location-dot mr-1"></i> Morigaon Civil Tini ali near Digital market (782105)</span>
       </div>
@@ -133,6 +133,17 @@
             <i class="fa-solid fa-phone text-xs text-red-500"></i>
             <span>6026108804</span>
           </a>
+
+          <!-- User Account / Profile Button -->
+          <button 
+            id="user-account-btn"
+            type="button"
+            onclick="openUserAccountModal()"
+            class="px-3 py-2 rounded-xl bg-gray-900/90 hover:bg-gray-800 border border-gray-700/80 hover:border-cyan-500/50 text-gray-200 hover:text-cyan-400 text-xs font-bold transition flex items-center gap-1.5 shadow"
+            title="User Account: Sign In / Create Account">
+            <i class="fa-regular fa-user text-sm" id="user-account-icon"></i>
+            <span id="user-account-label" class="hidden sm:inline">Sign In</span>
+          </button>
 
           <!-- Owner / Admin Portal Button (HIDDEN FROM USERS - ONLY SHOWN WHEN OWNER LOGS IN) -->
           <button 
@@ -223,9 +234,9 @@
         </div>
 
         <div class="bg-gray-900/90 border border-gray-800 p-4 rounded-xl">
-          <span class="text-[11px] font-bold uppercase text-gray-400 tracking-wider">₹249 Advance Tokens</span>
+          <span class="text-[11px] font-bold uppercase text-gray-400 tracking-wider">Payments Collected</span>
           <div class="text-2xl sm:text-3xl font-black text-amber-400 font-mono mt-1" id="admin-metric-advance">₹0</div>
-          <span class="text-[10px] text-amber-300">Verified Advance Deposits</span>
+          <span class="text-[10px] text-amber-300">Verified Online UPI Payments</span>
         </div>
 
         <div class="bg-gray-900/90 border border-gray-800 p-4 rounded-xl">
@@ -255,7 +266,7 @@
           id="tab-btn-orders" 
           onclick="switchAdminTab('orders')" 
           class="admin-tab-btn px-4 py-3 text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-white whitespace-nowrap">
-          <i class="fa-solid fa-boxes-packing mr-1.5"></i> Orders & ₹249 Advance Payments
+          <i class="fa-solid fa-boxes-packing mr-1.5"></i> Orders & UPI Payments
         </button>
       </div>
 
@@ -490,12 +501,12 @@
         </div>
       </div>
 
-      <!-- TAB 3: CUSTOMER ORDERS & ADVANCE PAYMENTS -->
+      <!-- TAB 3: CUSTOMER ORDERS & UPI PAYMENTS -->
       <div id="admin-tab-orders" class="admin-tab-content hidden">
         <div class="flex items-center justify-between mb-4">
           <h3 class="text-sm font-bold uppercase text-white tracking-wider flex items-center gap-2">
             <i class="fa-solid fa-receipt text-amber-400"></i>
-            <span>Orders Received (With ₹249 Advance Verification)</span>
+            <span>Orders Received (With Verified Online UPI Payments)</span>
           </h3>
           <span class="text-xs text-gray-400">Owner Contact: 7099442882 / 6026108804</span>
         </div>
@@ -507,7 +518,7 @@
                 <th class="p-3">Order ID & Date</th>
                 <th class="p-3">Customer & Delivery City</th>
                 <th class="p-3">Ordered Items</th>
-                <th class="p-3">₹249 Advance Token</th>
+                <th class="p-3">Payment Amount & UTR</th>
                 <th class="p-3">Status</th>
                 <th class="p-3 text-right">Customer Chat</th>
               </tr>
@@ -610,15 +621,15 @@
               <!-- Dynamically populated -->
             </div>
 
-            <!-- ₹249 Advance Security Seal -->
+            <!-- Instant Payment & Genuine Seal -->
             <div class="mt-4 p-3.5 rounded-xl bg-amber-950/40 border border-amber-500/30 flex items-center gap-3">
               <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg flex-shrink-0">
-                <i class="fa-solid fa-lock"></i>
+                <i class="fa-solid fa-shield-halved"></i>
               </div>
               <div>
-                <h4 class="text-xs font-black text-white uppercase tracking-wider">₹249 Advance Token System</h4>
+                <h4 class="text-xs font-black text-white uppercase tracking-wider">Mobile OTP Verification & Instant Pay</h4>
                 <p class="text-[11px] text-gray-300 leading-tight mt-0.5">
-                  Confirm your order with ₹249 token. The rest is collected upon safe doorstep delivery.
+                  Verify your mobile with OTP and complete secure UPI payment for instant order confirmation and packing.
                 </p>
               </div>
             </div>
@@ -631,24 +642,23 @@
     </div>
   </section>
 
-  <!-- MANDATORY ₹249 ADVANCE PAYMENT POLICY BANNER -->
+  <!-- SECURE ORDERING & MOBILE OTP POLICY BANNER -->
   <section class="bg-gradient-to-r from-gray-950 via-gray-900 to-gray-950 py-6 border-b border-gray-800 px-4">
     <div class="max-w-7xl mx-auto">
       <div class="advance-token-card p-5 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-5">
         <div class="flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center text-xl shadow-lg shadow-red-900/50 flex-shrink-0">
-            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <i class="fa-solid fa-mobile-screen-button"></i>
           </div>
           <div>
             <div class="flex items-center gap-2">
-              <span class="bg-red-600 text-white text-[10px] font-black uppercase px-2 py-0.5 rounded">Store Mandatory Rule</span>
+              <span class="bg-red-600 text-white text-[10px] font-black uppercase px-2 py-0.5 rounded">Order Feature</span>
               <h3 class="text-base sm:text-lg font-black text-white uppercase tracking-wide">
-                Pay ₹249 Advance Before Placing Your Order
+                Mobile OTP Verification & Direct UPI Payment
               </h3>
             </div>
             <p class="text-xs text-gray-300 mt-1 max-w-2xl leading-relaxed">
-              To verify genuine buyer intent and lock inventory with our courier partners, an advance token of <strong class="text-white font-bold">₹249</strong> is collected before dispatch. 
-              The balance amount is payable on <strong class="text-emerald-400">Cash on Delivery (COD) / Doorstep UPI</strong>.
+              When placing an order, authenticate securely with your mobile number via instant OTP verification, then complete your order payment directly via UPI for priority packing & dispatch from our Morigaon sports store.
             </p>
           </div>
         </div>
@@ -658,9 +668,9 @@
             <span class="text-[10px] text-gray-400 block uppercase font-mono">Store Contacts (Morigaon)</span>
             <span class="text-sm font-black text-white font-mono">7099442882 / 6026108804</span>
           </div>
-          <a href="https://wa.me/917099442882?text=Hello%20Waris%20Sports!%20I%20have%20a%20question%20regarding%20the%20249%20advance%20payment%20order." target="_blank" class="px-4 py-2 rounded-xl bg-gray-900 hover:bg-gray-800 text-white border border-gray-700 text-xs font-bold transition flex items-center gap-2">
+          <a href="https://wa.me/917099442882?text=Hello%20Waris%20Sports!%20I%20have%20a%20question%20regarding%20my%20sports%20gear%20order." target="_blank" class="px-4 py-2 rounded-xl bg-gray-900 hover:bg-gray-800 text-white border border-gray-700 text-xs font-bold transition flex items-center gap-2">
             <i class="fa-brands fa-whatsapp text-emerald-400"></i>
-            <span>Ask Owner</span>
+            <span>Ask Store</span>
           </a>
         </div>
       </div>
@@ -846,17 +856,17 @@
               </div>
             </div>
 
-            <!-- Token Policy Reminder -->
+            <!-- Ordering Reminder -->
             <div class="p-3 rounded-xl bg-gray-950/80 border border-gray-800 text-xs text-gray-300 flex items-center gap-2">
               <i class="fa-solid fa-circle-check text-emerald-400"></i>
-              <span>Advance token of ₹249 confirms custom jersey sublimation & printing!</span>
+              <span>High-definition dye sublimation printing • Priority dispatch from Morigaon</span>
             </div>
 
             <button 
               onclick="orderCustomJersey()" 
               class="w-full py-3.5 px-6 rounded-xl btn-primary-sport text-sm font-bold flex items-center justify-center gap-2">
               <i class="fa-solid fa-cart-plus"></i>
-              <span>Order Customized Jersey (Pay ₹249 Advance)</span>
+              <span>Add Customized Jersey to Bag</span>
             </button>
           </div>
         </div>
@@ -958,15 +968,15 @@
           </ul>
         </div>
 
-        <!-- Col 3: Advance Policy Notice -->
+        <!-- Col 3: Quality & Order Assurance -->
         <div class="space-y-3">
-          <h4 class="text-xs font-black uppercase tracking-wider text-white">Advance Token Security</h4>
+          <h4 class="text-xs font-black uppercase tracking-wider text-white">Genuine Sports Guarantee</h4>
           <p class="leading-relaxed">
-            Every order requires a nominal advance token payment of <strong>₹249</strong> before packing and courier handover.
+            All equipment is 100% authentic, hand-inspected, and match-ready. Secure mobile OTP authentication and direct UPI payment protection.
           </p>
           <div class="p-3 bg-gray-900/90 rounded-xl border border-gray-800">
-            <span class="text-[10px] text-amber-400 font-bold block">100% SECURE POLICY</span>
-            <span class="text-[11px] text-gray-300 mt-0.5 block">Zero risk: advance gets deducted from your total bill!</span>
+            <span class="text-[10px] text-emerald-400 font-bold block">DIRECT UPI ORDERING</span>
+            <span class="text-[11px] text-gray-300 mt-0.5 block">Fast dispatch from Morigaon with live courier tracking!</span>
           </div>
         </div>
 
@@ -1014,14 +1024,14 @@
       <span id="mobile-cart-count" class="hidden absolute -top-1 -right-2 px-1.5 py-0.2 rounded-full bg-red-600 text-white text-[9px] font-mono">0</span>
     </button>
 
+    <button id="mobile-account-btn" onclick="openUserAccountModal()" class="flex flex-col items-center gap-1 text-[10px] font-bold text-gray-400 hover:text-cyan-400">
+      <i class="fa-solid fa-circle-user text-base"></i>
+      <span id="mobile-account-label">Account</span>
+    </button>
+
     <a href="https://wa.me/917099442882" target="_blank" class="flex flex-col items-center gap-1 text-[10px] font-bold text-emerald-400">
       <i class="fa-brands fa-whatsapp text-base"></i>
-      <span>WhatsApp</span>
-    </a>
-
-    <a href="tel:7099442882" class="flex flex-col items-center gap-1 text-[10px] font-bold text-gray-400 hover:text-white">
-      <i class="fa-solid fa-phone text-base"></i>
-      <span>Call</span>
+      <span>Chat</span>
     </a>
   </div>
 
@@ -1049,14 +1059,14 @@
         </button>
       </div>
 
-      <!-- Advance Payment Notice in Cart -->
-      <div class="p-4 mx-4 mt-4 rounded-xl bg-gradient-to-r from-red-950/70 to-amber-950/50 border border-red-500/30 text-xs">
-        <div class="flex items-center gap-2 text-amber-300 font-bold uppercase tracking-wider text-[10px]">
+      <!-- Secure Checkout Notice in Cart -->
+      <div class="p-4 mx-4 mt-4 rounded-xl bg-gradient-to-r from-cyan-950/70 to-gray-900 border border-cyan-500/30 text-xs">
+        <div class="flex items-center gap-2 text-cyan-300 font-bold uppercase tracking-wider text-[10px]">
           <i class="fa-solid fa-shield-check"></i>
-          <span>Mandatory Advance Policy</span>
+          <span>Secure Online Checkout</span>
         </div>
         <p class="text-gray-300 text-[11px] mt-1 leading-snug">
-          Pay <strong>₹249 Advance Token</strong> now to confirm order packing. The remaining balance is payable on Cash on Delivery (COD)!
+          Login with your mobile OTP & pay for your sports gear directly via UPI for guaranteed dispatch.
         </p>
       </div>
 
@@ -1074,14 +1084,14 @@
             <span id="cart-subtotal" class="font-mono text-white font-bold">₹0</span>
           </div>
 
-          <div class="flex justify-between text-amber-400 font-bold">
-            <span class="flex items-center gap-1"><i class="fa-solid fa-receipt text-xs"></i> Advance Token (Pay Now):</span>
-            <span id="cart-advance-fee" class="font-mono">₹249</span>
+          <div class="flex justify-between text-gray-400">
+            <span>Express Delivery:</span>
+            <span class="text-emerald-400 font-bold uppercase text-[10px] bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">FREE</span>
           </div>
 
-          <div class="flex justify-between text-emerald-400 font-bold pt-1 border-t border-gray-800">
-            <span>Balance Due on Delivery (COD):</span>
-            <span id="cart-balance-due" class="font-mono">₹0</span>
+          <div class="flex justify-between text-white font-bold text-sm pt-2 border-t border-gray-800">
+            <span>Total Payable Amount:</span>
+            <span id="cart-total-payable" class="font-mono text-emerald-400 font-black text-base">₹0</span>
           </div>
         </div>
 
@@ -1089,8 +1099,8 @@
           id="cart-checkout-btn"
           onclick="openCheckoutModal()"
           class="w-full py-3.5 px-6 rounded-xl btn-primary-sport text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl">
-          <i class="fa-solid fa-shield-halved"></i>
-          <span>Proceed to Pay ₹249 Advance</span>
+          <i class="fa-solid fa-credit-card"></i>
+          <span>Proceed to Order & Pay</span>
         </button>
 
       </div>
@@ -1098,7 +1108,7 @@
     </div>
   </div>
 
-  <!-- CHECKOUT MODAL: 2-STEP MANDATORY ₹249 ADVANCE PAYMENT FLOW -->
+  <!-- CHECKOUT MODAL: OTP LOGIN & FULL UPI PAYMENT FLOW -->
   <div id="checkout-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
     <div class="modal-card w-full max-w-xl bg-gray-950 border border-gray-800 rounded-3xl overflow-hidden shadow-2xl my-8">
       
@@ -1461,6 +1471,296 @@
       <!-- Content Container -->
       <div id="quick-view-content" class="p-6 sm:p-8">
         <!-- Dynamically injected by App.js -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- USER AUTHENTICATION & CREATE ACCOUNT MODAL -->
+  <div id="user-auth-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
+    <div class="modal-card w-full max-w-md bg-gray-950 border border-gray-800 rounded-3xl overflow-hidden shadow-2xl relative p-6 sm:p-8">
+      
+      <!-- Close button -->
+      <button class="modal-close-trigger absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-gray-900/80 hover:bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center border border-gray-700 transition" onclick="closeUserAuthModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-red-600 to-red-800 text-white flex items-center justify-center text-2xl mb-3 shadow-lg shadow-red-900/30">
+          <i class="fa-solid fa-user-shield"></i>
+        </div>
+        <span class="text-[10px] font-black uppercase text-red-500 tracking-widest">WARIS SPORTS MEMBER ACCESS</span>
+        <h3 class="text-xl font-black text-white uppercase mt-0.5" id="user-auth-title">Customer Login & Signup</h3>
+        <p class="text-xs text-gray-400 mt-1">Authenticate with mobile OTP to order gear and view order history.</p>
+      </div>
+
+      <!-- Auth Switch Tabs -->
+      <div class="flex items-center rounded-xl bg-gray-900 p-1 mb-5 border border-gray-800">
+        <button 
+          id="user-tab-btn-login" 
+          type="button"
+          onclick="switchUserAuthTab('login')"
+          class="flex-1 py-2 text-xs font-bold rounded-lg transition bg-red-600 text-white shadow">
+          Login via OTP
+        </button>
+        <button 
+          id="user-tab-btn-register" 
+          type="button"
+          onclick="switchUserAuthTab('register')"
+          class="flex-1 py-2 text-xs font-bold rounded-lg transition text-gray-400 hover:text-white">
+          Create New Account
+        </button>
+      </div>
+
+      <!-- TAB 1: QUICK OTP LOGIN -->
+      <div id="user-auth-login-tab" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Mobile Number (10 Digits) *</label>
+          <div class="flex gap-2">
+            <span class="px-3 py-2.5 bg-gray-900 border border-gray-700 text-gray-400 text-xs font-bold rounded-xl flex items-center">+91</span>
+            <input 
+              type="tel" 
+              id="user-login-phone" 
+              maxlength="10" 
+              placeholder="e.g. 7099442882" 
+              class="flex-1 bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white font-mono tracking-wider focus:outline-none focus:border-red-500"
+            />
+            <button 
+              type="button" 
+              id="user-login-send-otp-btn"
+              onclick="sendUserAuthOtp('login')"
+              class="px-3.5 py-2.5 bg-red-600 hover:bg-red-500 text-white text-xs font-bold rounded-xl whitespace-nowrap transition">
+              Send OTP
+            </button>
+          </div>
+        </div>
+
+        <!-- SIMULATED SMS NOTIFICATION -->
+        <div id="user-login-sms-box" class="hidden p-3 rounded-xl bg-cyan-950/70 border border-cyan-500/40 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-cyan-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-message text-xs"></i> SMS FROM WARIS SPORTS
+            </span>
+            <button type="button" onclick="autoFillUserOtp('login')" class="text-[10px] bg-cyan-500/20 px-2 py-0.5 rounded text-cyan-300 font-bold border border-cyan-400/30">
+              Auto-fill OTP
+            </button>
+          </div>
+          <p class="text-gray-200 text-[11px] mt-1">
+            Your login verification code is: <strong id="user-login-sms-code" class="text-white font-mono font-black text-sm bg-black/40 px-2 py-0.5 rounded"></strong>
+          </p>
+        </div>
+
+        <!-- OTP Input -->
+        <div id="user-login-otp-section" class="hidden space-y-3 pt-1">
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1">Enter 4-Digit OTP Code *</label>
+          <div class="flex gap-2">
+            <input 
+              type="text" 
+              id="user-login-otp-input" 
+              maxlength="4" 
+              placeholder="• • • •" 
+              class="w-32 text-center bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-base font-mono font-black tracking-widest text-emerald-400 focus:outline-none focus:border-emerald-500"
+            />
+            <button 
+              type="button" 
+              onclick="verifyUserAuthOtp('login')"
+              class="flex-1 py-2.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Verify & Sign In</span>
+            </button>
+          </div>
+          <div class="text-right text-[11px]">
+            <button type="button" onclick="sendUserAuthOtp('login')" class="text-cyan-400 hover:underline">Resend Code</button>
+          </div>
+        </div>
+
+        <div class="pt-2 text-center text-xs text-gray-400">
+          <span>New to Waris Sports? </span>
+          <button type="button" onclick="switchUserAuthTab('register')" class="text-red-400 font-bold hover:underline">Create an Account</button>
+        </div>
+      </div>
+
+      <!-- TAB 2: CREATE NEW ACCOUNT -->
+      <form id="user-register-form" onsubmit="event.preventDefault(); submitUserRegister();" class="hidden space-y-3.5">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1">Full Name *</label>
+          <input 
+            type="text" 
+            id="register-name" 
+            required 
+            placeholder="e.g. Tariq Siddiqui" 
+            class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-red-500"
+          />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1">Mobile Number *</label>
+            <input 
+              type="tel" 
+              id="register-phone" 
+              required 
+              maxlength="10" 
+              pattern="[0-9]{10}"
+              placeholder="10-digit mobile" 
+              class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-red-500"
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Email Address (Optional)</label>
+            <input 
+              type="email" 
+              id="register-email" 
+              placeholder="athlete@gmail.com" 
+              class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-red-500"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1">Default Delivery Address & Landmark *</label>
+          <input 
+            type="text" 
+            id="register-address" 
+            required 
+            placeholder="House/Street, Landmark, Locality" 
+            class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-red-500"
+          />
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1">City / Town *</label>
+            <input 
+              type="text" 
+              id="register-city" 
+              required 
+              placeholder="e.g. Morigaon" 
+              class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500"
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1">PIN Code *</label>
+            <input 
+              type="text" 
+              id="register-pincode" 
+              required 
+              maxlength="6" 
+              pattern="[0-9]{6}"
+              placeholder="e.g. 782105" 
+              class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-red-500"
+            />
+          </div>
+        </div>
+
+        <!-- SIMULATED SMS NOTIFICATION FOR REGISTRATION -->
+        <div id="user-register-sms-box" class="hidden p-3 rounded-xl bg-cyan-950/70 border border-cyan-500/40 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-cyan-400 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-message text-xs"></i> SMS FROM WARIS SPORTS
+            </span>
+            <button type="button" onclick="autoFillUserOtp('register')" class="text-[10px] bg-cyan-500/20 px-2 py-0.5 rounded text-cyan-300 font-bold border border-cyan-400/30">
+              Auto-fill OTP
+            </button>
+          </div>
+          <p class="text-gray-200 text-[11px] mt-1">
+            Your registration code is: <strong id="user-register-sms-code" class="text-white font-mono font-black text-sm bg-black/40 px-2 py-0.5 rounded"></strong>
+          </p>
+        </div>
+
+        <!-- Registration OTP Section -->
+        <div id="user-register-otp-section" class="hidden space-y-2 pt-2 border-t border-gray-800">
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1">Enter OTP to Confirm Phone *</label>
+          <div class="flex gap-2">
+            <input 
+              type="text" 
+              id="user-register-otp-input" 
+              maxlength="4" 
+              placeholder="• • • •" 
+              class="w-32 text-center bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-base font-mono font-black tracking-widest text-emerald-400 focus:outline-none focus:border-emerald-500"
+            />
+            <button 
+              type="button" 
+              onclick="verifyUserRegisterOtp()"
+              class="flex-1 py-2.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow">
+              <i class="fa-solid fa-check-double"></i>
+              <span>Verify & Complete Registration</span>
+            </button>
+          </div>
+        </div>
+
+        <button 
+          type="button" 
+          id="register-submit-btn"
+          onclick="sendUserRegisterOtp()"
+          class="w-full py-3 px-6 rounded-xl btn-primary-sport text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 mt-2 shadow-lg">
+          <i class="fa-solid fa-user-plus"></i>
+          <span>Send OTP & Create Account</span>
+        </button>
+
+        <div class="text-center text-xs text-gray-400 pt-1">
+          <span>Already have an account? </span>
+          <button type="button" onclick="switchUserAuthTab('login')" class="text-cyan-400 font-bold hover:underline">Login here</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- USER PROFILE & MY ORDERS MODAL -->
+  <div id="user-profile-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
+    <div class="modal-card w-full max-w-2xl bg-gray-950 border border-gray-800 rounded-3xl overflow-hidden shadow-2xl relative p-6 sm:p-8">
+      
+      <!-- Close button -->
+      <button class="modal-close-trigger absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-gray-900/80 hover:bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center border border-gray-700 transition" onclick="closeUserProfileModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Profile Header -->
+      <div class="flex items-center gap-4 pb-6 border-b border-gray-800">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-600 to-blue-700 text-white flex items-center justify-center text-2xl font-black shadow-lg shadow-cyan-900/30">
+          <span id="profile-avatar-initials">W</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <h3 class="text-xl font-black text-white truncate" id="profile-name">Customer Name</h3>
+            <span class="bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+              <i class="fa-solid fa-circle-check"></i> Verified Member
+            </span>
+          </div>
+          <p class="text-xs text-gray-400 mt-0.5 flex flex-wrap items-center gap-3">
+            <span><i class="fa-solid fa-phone text-red-400 mr-1"></i> <strong id="profile-phone" class="text-gray-200 font-mono"></strong></span>
+            <span><i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> <span id="profile-location" class="text-gray-300">Morigaon</span></span>
+          </p>
+        </div>
+        <button onclick="logoutCustomer()" class="px-3 py-1.5 bg-gray-800 hover:bg-red-900/50 text-gray-300 hover:text-red-400 text-xs font-semibold rounded-lg border border-gray-700 transition">
+          <i class="fa-solid fa-power-off mr-1"></i> Logout
+        </button>
+      </div>
+
+      <!-- My Orders Section -->
+      <div class="mt-6">
+        <div class="flex items-center justify-between mb-3">
+          <h4 class="text-xs font-black uppercase tracking-wider text-white flex items-center gap-1.5">
+            <i class="fa-solid fa-box text-red-500"></i> My Order History
+          </h4>
+          <span class="text-[11px] text-gray-400" id="profile-orders-count">0 Orders</span>
+        </div>
+
+        <div id="profile-orders-container" class="space-y-3 max-h-72 overflow-y-auto pr-1">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Saved Delivery Address -->
+      <div class="mt-6 pt-4 border-t border-gray-800">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Saved Delivery Address</h4>
+        <div class="p-3 rounded-xl bg-gray-900 border border-gray-800 text-xs text-gray-300 flex items-start gap-2.5">
+          <i class="fa-solid fa-map-pin text-cyan-400 mt-0.5"></i>
+          <span id="profile-saved-address" class="leading-relaxed">No address saved yet.</span>
+        </div>
       </div>
 
     </div>
