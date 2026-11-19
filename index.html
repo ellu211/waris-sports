@@ -46,20 +46,25 @@
 
   <!-- TOP TICKER ANNOUNCEMENT BAR -->
   <div id="store-header-banner" class="bg-gradient-to-r from-red-700 via-red-600 to-amber-600 text-white text-xs py-2 px-4 shadow-md transition duration-300">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1 text-center sm:text-left">
-      <div class="flex items-center gap-2 font-medium">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-1.5 text-center md:text-left">
+      <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 font-medium">
         <span class="bg-black/30 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider text-amber-300">
           <i class="fa-solid fa-shield-halved mr-1"></i> Order Policy
         </span>
         <span>Before ordering, buyer must pay <strong class="underline decoration-white font-black text-amber-200">₹249 Advance Token</strong> | Balance on Delivery</span>
+        <span class="hidden lg:inline text-white/50">|</span>
+        <span class="hidden lg:inline text-[11px] text-amber-200"><i class="fa-solid fa-location-dot mr-1"></i> Morigaon Civil Tini ali near Digital market (782105)</span>
       </div>
-      <div class="flex items-center gap-4 text-xs font-semibold">
-        <a href="tel:8638036662" class="hover:text-amber-200 transition flex items-center gap-1.5">
-          <i class="fa-solid fa-phone text-xs"></i> 8638036662
+      <div class="flex flex-wrap items-center justify-center gap-3 text-xs font-semibold">
+        <a href="tel:7099442882" class="hover:text-amber-200 transition flex items-center gap-1">
+          <i class="fa-solid fa-phone text-xs"></i> 7099442882
+        </a>
+        <a href="tel:6026108804" class="hover:text-amber-200 transition flex items-center gap-1">
+          <i class="fa-solid fa-phone text-xs"></i> 6026108804
         </a>
         <span class="text-white/40">|</span>
-        <a href="https://instagram.com/warissports2024" target="_blank" class="hover:text-amber-200 transition flex items-center gap-1.5">
-          <i class="fa-brands fa-instagram text-sm"></i> @warissports2024
+        <a href="mailto:warissports2024@gmail.com" class="hover:text-amber-200 transition flex items-center gap-1">
+          <i class="fa-solid fa-envelope text-xs"></i> warissports2024@gmail.com
         </a>
       </div>
     </div>
@@ -70,8 +75,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20 gap-4">
         
-        <!-- Brand Logo -->
-        <a href="#store-home" class="flex items-center gap-3 group">
+        <!-- Brand Logo (Secret triple-click opens Owner Login) -->
+        <a href="#store-home" id="brand-logo-trigger" class="flex items-center gap-3 group select-none cursor-pointer">
           <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white text-2xl shadow-lg shadow-red-900/40 border border-red-500/30 group-hover:scale-105 transition">
             <i class="fa-solid fa-trophy"></i>
           </div>
@@ -80,7 +85,7 @@
               WARIS <span class="text-red-500">SPORTS</span>
             </div>
             <p class="text-[10px] uppercase font-bold tracking-widest text-gray-400 -mt-1 group-hover:text-cyan-400 transition">
-              Elite Equipment & Workshop
+              Morigaon, Assam • PIN: 782105
             </p>
           </div>
         </a>
@@ -105,29 +110,38 @@
             href="https://instagram.com/warissports2024" 
             target="_blank" 
             title="Follow on Instagram @warissports2024"
-            class="hidden lg:flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-purple-900/40 to-pink-900/40 border border-pink-500/30 text-pink-300 hover:text-white hover:border-pink-500 text-xs font-bold transition">
+            class="hidden xl:flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-purple-900/40 to-pink-900/40 border border-pink-500/30 text-pink-300 hover:text-white hover:border-pink-500 text-xs font-bold transition">
             <i class="fa-brands fa-instagram text-base"></i>
             <span>warissports2024</span>
           </a>
 
           <!-- Official Call/WhatsApp -->
           <a 
-            href="https://wa.me/918638036662" 
+            href="https://wa.me/917099442882" 
             target="_blank"
-            title="Chat on WhatsApp 8638036662"
+            title="Chat on WhatsApp 7099442882"
             class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 hover:text-white hover:border-emerald-500 text-xs font-bold transition">
             <i class="fa-brands fa-whatsapp text-base"></i>
-            <span>8638036662</span>
+            <span>7099442882</span>
           </a>
 
-          <!-- Owner / Admin Portal Button -->
+          <!-- Call Link -->
+          <a 
+            href="tel:6026108804" 
+            title="Call 6026108804"
+            class="hidden lg:flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gray-900 border border-gray-700 text-gray-300 hover:text-white text-xs font-bold transition">
+            <i class="fa-solid fa-phone text-xs text-red-500"></i>
+            <span>6026108804</span>
+          </a>
+
+          <!-- Owner / Admin Portal Button (HIDDEN FROM USERS - ONLY SHOWN WHEN OWNER LOGS IN) -->
           <button 
             id="admin-toggle-btn"
             type="button"
-            class="px-3.5 py-2 rounded-xl bg-gray-800/90 hover:bg-amber-600 border border-gray-700 text-amber-400 hover:text-white text-xs font-bold transition flex items-center gap-2 shadow"
-            title="Owner portal: List products, change prices & view orders">
-            <i class="fa-solid fa-shield-halved"></i>
-            <span class="hidden sm:inline">Owner Portal</span>
+            class="hidden px-3.5 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 border border-amber-500 text-white text-xs font-bold transition items-center gap-2 shadow"
+            title="Owner Portal Active: Click to Exit">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span class="hidden sm:inline">Exit Owner Mode</span>
           </button>
 
           <!-- Shopping Cart Drawer Trigger -->
@@ -483,7 +497,7 @@
             <i class="fa-solid fa-receipt text-amber-400"></i>
             <span>Orders Received (With ₹249 Advance Verification)</span>
           </h3>
-          <span class="text-xs text-gray-400">Owner Contact: 8638036662</span>
+          <span class="text-xs text-gray-400">Owner Contact: 7099442882 / 6026108804</span>
         </div>
 
         <div class="overflow-x-auto rounded-xl border border-gray-800 bg-gray-900/60">
@@ -516,38 +530,52 @@
         
         <!-- Left Hero Copy -->
         <div class="lg:col-span-7 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-950/80 border border-red-500/40 text-red-400 text-xs font-bold tracking-wider uppercase">
-            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-            WARIS SPORTS • OFFICIAL STORE
+          <!-- BOLD IDENTITY STATEMENT REQUESTED BY USER -->
+          <div class="space-y-3">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-950/80 border border-red-500/40 text-red-400 text-xs font-bold tracking-wider uppercase">
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+              WARIS SPORTS • OFFICIAL STORE • MORIGAON
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight tracking-tight uppercase font-heading">
+              <span class="text-white drop-shadow-lg block">PLAY WITH WARIS</span>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-amber-400 to-cyan-400 font-extrabold filter drop-shadow">
+                AND MAKE IDENTITY
+              </span>
+            </h1>
+            <div class="h-1.5 w-36 bg-gradient-to-r from-red-600 via-amber-500 to-transparent rounded-full"></div>
           </div>
 
-          <h1 class="text-4xl sm:text-6xl font-black text-white leading-none tracking-tight">
-            PLAY HARDER. <br />
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-amber-400 to-cyan-400">
-              STRIKE GREATER.
-            </span>
-          </h1>
-
           <p class="text-gray-300 text-sm sm:text-base max-w-xl leading-relaxed">
-            Direct handcrafted Grade-1 English willow bats, tournament racquets, professional gym gear & customized team kits. Hand-inspected and match-tested by certified coaches.
+            Premium sports equipment, handcrafted Grade-1 English willow bats, tournament racquets, gym gear & customized team kits. Hand-inspected and match-tested by certified coaches in Morigaon, Assam.
           </p>
 
-          <!-- Store Contact Quick Pills -->
-          <div class="flex flex-wrap items-center gap-3 pt-2">
-            <a href="tel:8638036662" class="px-4 py-2.5 rounded-xl bg-gray-900/90 border border-gray-700 hover:border-red-500 text-white text-xs font-bold transition flex items-center gap-2">
+          <!-- Store Contact & Location Quick Pills -->
+          <div class="flex flex-wrap items-center gap-2.5 pt-2">
+            <a href="tel:7099442882" class="px-3.5 py-2 rounded-xl bg-gray-900/90 border border-gray-700 hover:border-red-500 text-white text-xs font-bold transition flex items-center gap-1.5">
               <i class="fa-solid fa-phone text-red-500"></i>
-              <span>Call: <strong>8638036662</strong></span>
+              <span>Call: <strong>7099442882</strong></span>
             </a>
 
-            <a href="https://instagram.com/warissports2024" target="_blank" class="px-4 py-2.5 rounded-xl bg-gray-900/90 border border-gray-700 hover:border-pink-500 text-white text-xs font-bold transition flex items-center gap-2">
-              <i class="fa-brands fa-instagram text-pink-500 text-sm"></i>
-              <span>IG: <strong>@warissports2024</strong></span>
+            <a href="tel:6026108804" class="px-3.5 py-2 rounded-xl bg-gray-900/90 border border-gray-700 hover:border-red-500 text-white text-xs font-bold transition flex items-center gap-1.5">
+              <i class="fa-solid fa-phone text-amber-400"></i>
+              <span><strong>6026108804</strong></span>
             </a>
 
-            <a href="https://wa.me/918638036662" target="_blank" class="px-4 py-2.5 rounded-xl bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 hover:text-white text-xs font-bold transition flex items-center gap-2">
-              <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+            <a href="https://wa.me/917099442882" target="_blank" class="px-3.5 py-2 rounded-xl bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 hover:text-white text-xs font-bold transition flex items-center gap-1.5">
+              <i class="fa-brands fa-whatsapp text-emerald-400"></i>
               <span>WhatsApp Direct</span>
             </a>
+
+            <a href="mailto:warissports2024@gmail.com" class="px-3.5 py-2 rounded-xl bg-gray-900/90 border border-gray-700 hover:border-cyan-500 text-gray-300 hover:text-white text-xs font-bold transition flex items-center gap-1.5">
+              <i class="fa-solid fa-envelope text-cyan-400"></i>
+              <span>warissports2024@gmail.com</span>
+            </a>
+
+            <div class="w-full flex items-center gap-2 text-xs text-amber-300 bg-gray-900/60 border border-gray-800 rounded-xl px-3 py-2 mt-1">
+              <i class="fa-solid fa-location-dot text-red-500 flex-shrink-0"></i>
+              <span><strong>Location:</strong> Morigaon Civil Tini ali near Digital market, Assam - PIN: <strong>782105</strong></span>
+            </div>
           </div>
 
           <!-- Hero CTAs -->
@@ -627,10 +655,10 @@
 
         <div class="flex flex-wrap items-center gap-3 flex-shrink-0">
           <div class="text-right hidden sm:block">
-            <span class="text-[10px] text-gray-400 block uppercase font-mono">Store Contact</span>
-            <span class="text-sm font-black text-white font-mono">8638036662</span>
+            <span class="text-[10px] text-gray-400 block uppercase font-mono">Store Contacts (Morigaon)</span>
+            <span class="text-sm font-black text-white font-mono">7099442882 / 6026108804</span>
           </div>
-          <a href="https://wa.me/918638036662?text=Hello%20Waris%20Sports!%20I%20have%20a%20question%20regarding%20the%20249%20advance%20payment%20order." target="_blank" class="px-4 py-2 rounded-xl bg-gray-900 hover:bg-gray-800 text-white border border-gray-700 text-xs font-bold transition flex items-center gap-2">
+          <a href="https://wa.me/917099442882?text=Hello%20Waris%20Sports!%20I%20have%20a%20question%20regarding%20the%20249%20advance%20payment%20order." target="_blank" class="px-4 py-2 rounded-xl bg-gray-900 hover:bg-gray-800 text-white border border-gray-700 text-xs font-bold transition flex items-center gap-2">
             <i class="fa-brands fa-whatsapp text-emerald-400"></i>
             <span>Ask Owner</span>
           </a>
@@ -887,34 +915,45 @@
             <a href="https://instagram.com/warissports2024" target="_blank" class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-700 hover:border-pink-500 text-pink-400 hover:text-white flex items-center justify-center transition">
               <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="https://wa.me/918638036662" target="_blank" class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-700 hover:border-emerald-500 text-emerald-400 hover:text-white flex items-center justify-center transition">
+            <a href="https://wa.me/917099442882" target="_blank" class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-700 hover:border-emerald-500 text-emerald-400 hover:text-white flex items-center justify-center transition">
               <i class="fa-brands fa-whatsapp"></i>
             </a>
-            <a href="tel:8638036662" class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-700 hover:border-red-500 text-red-400 hover:text-white flex items-center justify-center transition">
+            <a href="tel:7099442882" class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-700 hover:border-red-500 text-red-400 hover:text-white flex items-center justify-center transition">
               <i class="fa-solid fa-phone"></i>
+            </a>
+            <a href="mailto:warissports2024@gmail.com" class="w-9 h-9 rounded-xl bg-gray-900 border border-gray-700 hover:border-cyan-500 text-cyan-400 hover:text-white flex items-center justify-center transition" title="Email Us">
+              <i class="fa-solid fa-envelope"></i>
             </a>
           </div>
         </div>
 
-        <!-- Col 2: Direct Owner Contacts -->
+        <!-- Col 2: Store Contacts & Location -->
         <div class="space-y-3">
-          <h4 class="text-xs font-black uppercase tracking-wider text-white">Direct Owner Contacts</h4>
+          <h4 class="text-xs font-black uppercase tracking-wider text-white">Store Contacts & Address</h4>
           <ul class="space-y-2.5">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-location-dot text-red-500 w-4 mt-0.5 flex-shrink-0"></i>
+              <span>Morigaon Civil Tini ali near Digital market, Assam - PIN: <strong class="text-white font-mono">782105</strong></span>
+            </li>
             <li class="flex items-center gap-2">
               <i class="fa-solid fa-phone text-red-500 w-4"></i>
-              <span>Phone / Call: <strong class="text-white">8638036662</strong></span>
+              <span>Phone 1: <a href="tel:7099442882" class="text-white hover:underline font-mono">7099442882</a></span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-phone text-amber-400 w-4"></i>
+              <span>Phone 2: <a href="tel:6026108804" class="text-white hover:underline font-mono">6026108804</a></span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-envelope text-cyan-400 w-4"></i>
+              <span>Email: <a href="mailto:warissports2024@gmail.com" class="text-cyan-300 hover:underline">warissports2024@gmail.com</a></span>
             </li>
             <li class="flex items-center gap-2">
               <i class="fa-brands fa-whatsapp text-emerald-400 w-4"></i>
-              <a href="https://wa.me/918638036662" target="_blank" class="hover:underline">WhatsApp: <strong class="text-white">+91 8638036662</strong></a>
+              <a href="https://wa.me/917099442882" target="_blank" class="hover:underline">WhatsApp: <strong class="text-white">+91 7099442882</strong></a>
             </li>
             <li class="flex items-center gap-2">
               <i class="fa-brands fa-instagram text-pink-500 w-4"></i>
               <a href="https://instagram.com/warissports2024" target="_blank" class="hover:underline">Instagram: <strong class="text-white">@warissports2024</strong></a>
-            </li>
-            <li class="flex items-center gap-2">
-              <i class="fa-solid fa-store text-cyan-400 w-4"></i>
-              <span>Shop Name: <strong class="text-white">WARIS SPORTS</strong></span>
             </li>
           </ul>
         </div>
@@ -944,21 +983,20 @@
       <!-- Copyright & Bottom Line -->
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-gray-500 text-[11px]">
         <div>
-          © 2024 <strong class="text-gray-300">WARIS SPORTS</strong>. All Rights Reserved. Contact: 8638036662 | Instagram: warissports2024
+          © 2024 <strong class="text-gray-300">WARIS SPORTS</strong> (Morigaon, Assam). All Rights Reserved. Contact: 7099442882, 6026108804 | Email: warissports2024@gmail.com
         </div>
-        <div class="flex items-center gap-4">
-          <button onclick="toggleAdminMode()" class="hover:text-amber-400 transition font-mono">Owner Portal Login</button>
-          <span>•</span>
-          <span>Fast Sports Courier</span>
-          <span>•</span>
-          <span>Match Ready Equipment</span>
+        <div class="flex items-center gap-4 text-gray-500">
+          <span>Fast Sports Courier Across India</span>
+          <!-- Discreet secret owner access point for owner -->
+          <span onclick="openOwnerLoginModal()" class="cursor-pointer select-none text-gray-700 hover:text-amber-500 transition px-1" title="Security Access">•</span>
+          <span>Match Ready Authentic Equipment</span>
         </div>
       </div>
 
     </div>
   </footer>
 
-  <!-- MOBILE BOTTOM ACTION BAR -->
+  <!-- MOBILE BOTTOM ACTION BAR (FOR BUYERS) -->
   <div class="fixed bottom-0 left-0 right-0 z-40 mobile-bottom-bar flex items-center justify-around py-2.5 px-4 lg:hidden">
     <a href="#store-home" class="flex flex-col items-center gap-1 text-[10px] font-bold text-gray-400 hover:text-white">
       <i class="fa-solid fa-house text-base"></i>
@@ -976,20 +1014,20 @@
       <span id="mobile-cart-count" class="hidden absolute -top-1 -right-2 px-1.5 py-0.2 rounded-full bg-red-600 text-white text-[9px] font-mono">0</span>
     </button>
 
-    <a href="https://wa.me/918638036662" target="_blank" class="flex flex-col items-center gap-1 text-[10px] font-bold text-emerald-400">
+    <a href="https://wa.me/917099442882" target="_blank" class="flex flex-col items-center gap-1 text-[10px] font-bold text-emerald-400">
       <i class="fa-brands fa-whatsapp text-base"></i>
-      <span>Chat</span>
+      <span>WhatsApp</span>
     </a>
 
-    <button id="mobile-admin-btn" onclick="toggleAdminMode()" class="flex flex-col items-center gap-1 text-[10px] font-bold text-gray-400 hover:text-amber-400">
-      <i class="fa-solid fa-shield-halved text-base"></i>
-      <span>Owner</span>
-    </button>
+    <a href="tel:7099442882" class="flex flex-col items-center gap-1 text-[10px] font-bold text-gray-400 hover:text-white">
+      <i class="fa-solid fa-phone text-base"></i>
+      <span>Call</span>
+    </a>
   </div>
 
   <!-- FLOATING WHATSAPP CHAT BUTTON -->
   <a 
-    href="https://wa.me/918638036662?text=Hello%20Waris%20Sports!%20I%20am%20browsing%20your%20website%20and%20need%20assistance."
+    href="https://wa.me/917099442882?text=Hello%20Waris%20Sports!%20I%20am%20browsing%20your%20website%20and%20need%20assistance."
     target="_blank"
     class="fixed bottom-20 sm:bottom-8 right-6 z-40 w-14 h-14 rounded-full btn-whatsapp flex items-center justify-center text-white text-2xl shadow-2xl hover:scale-110 transition duration-300"
     title="Chat with Waris Sports on WhatsApp">
@@ -1078,11 +1116,98 @@
       <!-- Modal Body -->
       <div class="p-6">
         
-        <!-- STEP 1: DELIVERY & BUYER INFORMATION -->
-        <div id="checkout-step-1" class="space-y-4">
-          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cyan-400 pb-2 border-b border-gray-800">
-            <span class="w-5 h-5 rounded-full bg-cyan-400 text-gray-950 flex items-center justify-center text-[10px] font-black">1</span>
-            <span>Buyer Delivery Information</span>
+        <!-- STEP 1: BUYER PHONE LOGIN & OTP VERIFICATION -->
+        <div id="checkout-step-login" class="space-y-4">
+          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400 pb-2 border-b border-gray-800">
+            <span class="w-5 h-5 rounded-full bg-amber-400 text-gray-950 flex items-center justify-center text-[10px] font-black">1</span>
+            <span>Customer Mobile Login & OTP Verification</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-gray-900/90 border border-gray-800 space-y-3">
+            <p class="text-xs text-gray-300">
+              Please enter your 10-digit mobile number. We will send a one-time OTP to authenticate your sports booking.
+            </p>
+
+            <div>
+              <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Mobile Number (WhatsApp) *</label>
+              <div class="flex gap-2">
+                <span class="px-3 py-2.5 bg-gray-950 border border-gray-700 text-gray-400 text-xs font-bold rounded-xl flex items-center">+91</span>
+                <input 
+                  type="tel" 
+                  id="buyer-login-phone" 
+                  maxlength="10" 
+                  pattern="[0-9]{10}"
+                  placeholder="e.g. 7099442882" 
+                  class="flex-1 bg-gray-950 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white font-mono tracking-wider focus:outline-none focus:border-red-500" 
+                />
+                <button 
+                  type="button" 
+                  id="send-otp-btn"
+                  onclick="sendBuyerOtp()" 
+                  class="px-4 py-2.5 bg-red-600 hover:bg-red-500 text-white rounded-xl text-xs font-bold transition whitespace-nowrap">
+                  Send OTP <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- SIMULATED SMS BANNER -->
+            <div id="simulated-sms-box" class="hidden mt-3 p-3 rounded-xl bg-cyan-950/70 border border-cyan-500/40 text-xs">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2 text-cyan-400 font-bold">
+                  <i class="fa-solid fa-message text-sm"></i>
+                  <span>SMS RECEIVED: WARIS SPORTS</span>
+                </div>
+                <button type="button" onclick="autoFillOtp()" class="px-2 py-0.5 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 font-bold rounded text-[10px] border border-cyan-400/30 transition">
+                  Auto-fill OTP
+                </button>
+              </div>
+              <p class="text-gray-200 text-[11px] mt-1">
+                Your verification code is: <strong id="simulated-sms-otp" class="text-white font-mono font-black text-sm tracking-widest bg-black/40 px-2 py-0.5 rounded"></strong>. Valid for 5 minutes.
+              </p>
+            </div>
+
+            <!-- OTP INPUT SECTION -->
+            <div id="otp-verify-section" class="hidden space-y-3 pt-2 border-t border-gray-800">
+              <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Enter 4-Digit OTP Code *</label>
+              <div class="flex gap-2">
+                <input 
+                  type="text" 
+                  id="buyer-otp-input" 
+                  maxlength="4" 
+                  placeholder="• • • •" 
+                  class="w-36 text-center bg-gray-950 border border-gray-700 rounded-xl px-4 py-2.5 text-base font-mono font-black tracking-widest text-emerald-400 focus:outline-none focus:border-emerald-500" 
+                />
+                <button 
+                  type="button" 
+                  onclick="verifyBuyerOtp()" 
+                  class="flex-1 py-2.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-900/30">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Verify OTP & Continue</span>
+                </button>
+              </div>
+
+              <div class="flex items-center justify-between text-[11px] text-gray-400 pt-1">
+                <span>Didn't receive code?</span>
+                <button type="button" id="resend-otp-link" onclick="sendBuyerOtp()" class="text-cyan-400 hover:underline">
+                  Resend OTP <span id="otp-countdown" class="font-mono"></span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- STEP 2: DELIVERY & BUYER INFORMATION -->
+        <div id="checkout-step-1" class="hidden space-y-4">
+          <div class="flex items-center justify-between pb-2 border-b border-gray-800">
+            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cyan-400">
+              <span class="w-5 h-5 rounded-full bg-cyan-400 text-gray-950 flex items-center justify-center text-[10px] font-black">2</span>
+              <span>Buyer Delivery Information</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs">
+              <span id="verified-buyer-phone-badge" class="font-mono text-emerald-400 font-bold bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800 text-[11px]"></span>
+              <button type="button" onclick="changeBuyerPhone()" class="text-[11px] text-gray-400 hover:text-white underline">Change</button>
+            </div>
           </div>
 
           <form id="checkout-shipping-form" class="space-y-3">
@@ -1093,7 +1218,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Mobile Number (WhatsApp) *</label>
+                <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Mobile Number (Verified) *</label>
                 <input type="tel" id="ship-phone" required pattern="[0-9]{10}" placeholder="10-digit mobile number" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-red-500" />
               </div>
 
@@ -1111,7 +1236,7 @@
             <div class="grid grid-cols-3 gap-3">
               <div>
                 <label class="block text-xs font-bold text-gray-300 uppercase mb-1">City *</label>
-                <input type="text" id="ship-city" required placeholder="e.g. Guwahati" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500" />
+                <input type="text" id="ship-city" required placeholder="e.g. Morigaon" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500" />
               </div>
 
               <div>
@@ -1121,7 +1246,7 @@
 
               <div>
                 <label class="block text-xs font-bold text-gray-300 uppercase mb-1">PIN Code *</label>
-                <input type="text" id="ship-pincode" required pattern="[0-9]{6}" placeholder="6 digits" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500" />
+                <input type="text" id="ship-pincode" required pattern="[0-9]{6}" placeholder="6 digits (e.g. 782105)" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500" />
               </div>
             </div>
 
@@ -1156,11 +1281,11 @@
           </form>
         </div>
 
-        <!-- STEP 2: MANDATORY ₹249 UPI ADVANCE PAYMENT SCREEN -->
+        <!-- STEP 3: MANDATORY ₹249 UPI ADVANCE PAYMENT SCREEN -->
         <div id="checkout-step-2" class="hidden space-y-5">
           <div class="flex items-center justify-between pb-2 border-b border-gray-800">
             <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400">
-              <span class="w-5 h-5 rounded-full bg-amber-400 text-gray-950 flex items-center justify-center text-[10px] font-black">2</span>
+              <span class="w-5 h-5 rounded-full bg-amber-400 text-gray-950 flex items-center justify-center text-[10px] font-black">3</span>
               <span>Mandatory Token Deposit: ₹249</span>
             </div>
             <button onclick="backToShippingStep()" class="text-xs text-gray-400 hover:text-white underline">
@@ -1183,11 +1308,14 @@
 
             <div class="mt-3 space-y-1">
               <div class="text-xs text-gray-300">
-                Shop: <strong class="text-white">WARIS SPORTS</strong> | Phone: <strong class="text-white">8638036662</strong>
+                Shop: <strong class="text-white">WARIS SPORTS</strong> | Phone: <strong class="text-white">7099442882 / 6026108804</strong>
               </div>
-              <div class="flex items-center justify-center gap-2">
+              <div class="text-[11px] text-gray-400">
+                Morigaon Civil Tini ali near Digital market (782105)
+              </div>
+              <div class="flex items-center justify-center gap-2 pt-1">
                 <span class="text-xs font-mono font-bold text-amber-400 bg-gray-950 px-3 py-1 rounded-lg border border-gray-800">
-                  UPI ID: 8638036662@upi
+                  UPI ID: 7099442882@upi
                 </span>
                 <button onclick="copyUpiId()" class="px-2.5 py-1 bg-gray-800 hover:bg-gray-700 text-cyan-400 text-xs rounded-lg transition" title="Copy UPI ID">
                   <i class="fa-regular fa-copy"></i> Copy
@@ -1243,7 +1371,7 @@
 
         </div>
 
-        <!-- STEP 3: ORDER CONFIRMED SUCCESS SCREEN -->
+        <!-- STEP 4: ORDER CONFIRMED SUCCESS SCREEN -->
         <div id="checkout-step-3" class="hidden text-center py-6 space-y-6">
           <div class="w-16 h-16 mx-auto rounded-full bg-emerald-500/20 text-emerald-400 border-2 border-emerald-500 flex items-center justify-center text-3xl animate-bounce">
             <i class="fa-solid fa-check"></i>
@@ -1253,7 +1381,7 @@
             <span class="text-xs font-black uppercase tracking-widest text-emerald-400">Advance Payment Confirmed</span>
             <h2 class="text-2xl font-black text-white mt-1">Order Successfully Placed!</h2>
             <p class="text-xs text-gray-300 mt-1">
-              Your ₹249 advance has been verified. Waris Sports will pack and dispatch your sports equipment within 24 hours.
+              Your ₹249 advance has been verified. Waris Sports will pack and dispatch your sports equipment within 24 hours from Morigaon.
             </p>
           </div>
 
@@ -1262,7 +1390,8 @@
             <div class="flex justify-between items-center pb-2 border-b border-gray-800">
               <div>
                 <span class="font-heading font-black text-white text-base">WARIS SPORTS</span>
-                <span class="text-[10px] text-gray-400 block">Contact: 8638036662 | IG: @warissports2024</span>
+                <span class="text-[10px] text-gray-400 block">Morigaon Civil Tini ali near Digital market (782105)</span>
+                <span class="text-[10px] text-gray-400 block">Phone: 7099442882, 6026108804 | Email: warissports2024@gmail.com</span>
               </div>
               <span id="confirm-order-id" class="font-mono font-bold text-cyan-400 text-sm">#WS-98421</span>
             </div>
@@ -1299,7 +1428,8 @@
               target="_blank"
               class="w-full py-3.5 px-6 rounded-xl btn-whatsapp text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl">
               <i class="fa-brands fa-whatsapp text-lg"></i>
-              <span>Send Receipt to Owner on WhatsApp (8638036662)</span>
+              <span>Send Receipt to Owner on WhatsApp (7099442882)</span>
+            </a>
             </a>
 
             <div class="flex gap-3">
@@ -1332,6 +1462,66 @@
       <div id="quick-view-content" class="p-6 sm:p-8">
         <!-- Dynamically injected by App.js -->
       </div>
+
+    </div>
+  </div>
+
+  <!-- OWNER LOGIN MODAL (PROTECTED BY PASSWORD: IMRAZ@WARIS2024.#) -->
+  <div id="owner-login-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
+    <div class="modal-card w-full max-w-md bg-gray-950 border border-gray-800 rounded-3xl overflow-hidden shadow-2xl relative p-6 sm:p-8">
+      
+      <!-- Close button -->
+      <button class="modal-close-trigger absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-gray-900/80 hover:bg-gray-800 text-gray-300 hover:text-white flex items-center justify-center border border-gray-700 transition" onclick="closeOwnerLoginModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-3xl mb-3 shadow-lg shadow-amber-900/20">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <span class="text-[10px] font-black uppercase text-amber-400 tracking-widest">Waris Sports Owner Portal</span>
+        <h3 class="text-xl font-black text-white uppercase mt-1">Owner Authentication</h3>
+        <p class="text-xs text-gray-400 mt-1">Enter your secret owner password to manage products, update prices, and review customer orders.</p>
+      </div>
+
+      <form id="owner-login-form" onsubmit="event.preventDefault(); submitOwnerPassword();" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Owner Password:</label>
+          <div class="relative">
+            <input 
+              type="password" 
+              id="owner-password-input" 
+              required 
+              autocomplete="current-password"
+              placeholder="Enter Owner Password" 
+              class="w-full bg-gray-900 border border-gray-700 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 font-mono tracking-wider transition pr-10"
+            />
+            <button 
+              type="button" 
+              onclick="togglePasswordVisibility()" 
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white p-1 text-sm transition"
+              title="Show / Hide Password">
+              <i id="password-toggle-icon" class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+          <p id="owner-login-error" class="hidden text-xs text-red-400 font-medium mt-1.5 flex items-center gap-1">
+            <i class="fa-solid fa-circle-exclamation"></i> Incorrect password. Please try again.
+          </p>
+        </div>
+
+        <button 
+          type="submit" 
+          id="owner-login-submit-btn"
+          class="w-full py-3 px-6 rounded-xl text-xs font-black uppercase tracking-wider bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-gray-950 shadow-xl transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-lock-open"></i>
+          <span>Unlock Owner Dashboard</span>
+        </button>
+
+        <div class="text-center pt-2 text-[11px] text-gray-500 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-lock text-[10px]"></i>
+          <span>Protected Owner Gateway • WARIS SPORTS</span>
+        </div>
+      </form>
 
     </div>
   </div>

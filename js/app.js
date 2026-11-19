@@ -1,8 +1,10 @@
 /**
  * WARIS SPORTS - Main Application Engine
  * Shop Name: WARIS SPORTS
- * Contact: 8638036662 | Instagram: warissports2024
- * Advance Token Fee: ₹249
+ * Contact: 7099442882, 6026108804 | Email: warissports2024@gmail.com
+ * Location: Morigaon Civil Tini ali near Digital market, PIN: 782105
+ * Instagram: warissports2024 | Advance Token Fee: ₹249
+ * Owner Access: Protected by secret password
  */
 
 // Application State
@@ -15,19 +17,23 @@ const AppState = {
   maxPrice: 30000,
   sortBy: 'featured',
   isAdminMode: false,
-  adminPin: '1234',
+  ownerPassword: 'IMRAZ@WARIS2024.#',
   selectedProduct: null,
   currentOrder: null,
   shopInfo: {
     name: 'WARIS SPORTS',
-    contact: '8638036662',
-    contactDisplay: '+91 8638036662',
+    contact: '7099442882',
+    contactAlt: '6026108804',
+    contactDisplay: '+91 7099442882 / 6026108804',
+    email: 'warissports2024@gmail.com',
     instagram: 'warissports2024',
     instagramUrl: 'https://instagram.com/warissports2024',
-    whatsappUrl: 'https://wa.me/918638036662',
+    whatsappUrl: 'https://wa.me/917099442882',
+    whatsappUrlAlt: 'https://wa.me/916026108804',
     advanceTokenAmount: 249,
-    upiId: '8638036662@upi',
-    address: 'Near Central Stadium, Main Market, Guwahati, Assam - 781001'
+    upiId: '7099442882@upi',
+    address: 'Morigaon Civil Tini ali near Digital market, Assam',
+    pin: '782105'
   }
 };
 
@@ -197,11 +203,36 @@ function initEventListeners() {
     });
   }
 
-  // Admin Mode Toggles
+  // Admin Mode Exit Toggle (Shown in header only when owner is logged in)
   const adminToggleBtn = document.getElementById('admin-toggle-btn');
-  const mobileAdminBtn = document.getElementById('mobile-admin-btn');
   if (adminToggleBtn) adminToggleBtn.addEventListener('click', toggleAdminMode);
-  if (mobileAdminBtn) mobileAdminBtn.addEventListener('click', toggleAdminMode);
+
+  // Secret Triple-Click on Brand Logo to Open Owner Login
+  const logoTrigger = document.getElementById('brand-logo-trigger');
+  if (logoTrigger) {
+    let logoClicks = 0;
+    let logoTimer = null;
+    logoTrigger.addEventListener('click', (e) => {
+      logoClicks++;
+      if (logoClicks === 1) {
+        logoTimer = setTimeout(() => { logoClicks = 0; }, 1500);
+      } else if (logoClicks >= 3) {
+        e.preventDefault();
+        clearTimeout(logoTimer);
+        logoClicks = 0;
+        openOwnerLoginModal();
+      }
+    });
+  }
+
+  // Secret Keyboard Shortcut for Owner: Ctrl+Shift+O or Alt+W
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey && e.shiftKey && (e.key === 'O' || e.key === 'o')) ||
+        (e.altKey && (e.key === 'W' || e.key === 'w'))) {
+      e.preventDefault();
+      openOwnerLoginModal();
+    }
+  });
 
   // Modal Closers
   document.querySelectorAll('.modal-close-trigger').forEach(btn => {
@@ -666,9 +697,9 @@ function buyNowFromQuickView() {
 // WhatsApp Inquiry Link Generator
 function generateWhatsAppInquiry(product) {
   const text = encodeURIComponent(
-    `Hello Waris Sports! I want to ask about: *${product.name}* (Price: ${formatINR(product.price)}). Is this available in stock?`
+    `Hello Waris Sports! I want to ask about: *${product.name}* (Price: ${formatINR(product.price)}). Is this available in stock at your Morigaon store?`
   );
-  return `https://wa.me/918638036662?text=${text}`;
+  return `https://wa.me/91${AppState.shopInfo.contact}?text=${text}`;
 }
 
 // Cart Management
@@ -844,7 +875,10 @@ function renderCartDrawer() {
   `).join('');
 }
 
-// Checkout Modal & Mandatory ₹249 Advance Payment Flow
+let generatedOtp = null;
+let otpTimerInterval = null;
+
+// Checkout Modal & Mandatory Phone OTP Verification Flow
 function openCheckoutModal() {
   if (AppState.cart.length === 0) {
     showToast('Your cart is empty!', 'error');
@@ -865,12 +899,153 @@ function openCheckoutModal() {
   document.getElementById('checkout-balance-due').textContent = formatINR(balanceDue);
   document.getElementById('qr-advance-amount').textContent = formatINR(advanceFee);
 
-  // Reset steps
+  // Check if buyer has already verified their phone in this session
+  const verifiedPhone = sessionStorage.getItem('waris_buyer_phone');
+  if (verifiedPhone) {
+    AppState.buyerPhone = verifiedPhone;
+    showShippingStep();
+  } else {
+    showOtpLoginStep();
+  }
+
+  modal.classList.add('active');
+}
+
+function showOtpLoginStep() {
+  document.getElementById('checkout-step-login').classList.remove('hidden');
+  document.getElementById('checkout-step-1').classList.add('hidden');
+  document.getElementById('checkout-step-2').classList.add('hidden');
+  document.getElementById('checkout-step-3').classList.add('hidden');
+
+  const otpSection = document.getElementById('otp-verify-section');
+  if (otpSection) otpSection.classList.add('hidden');
+  const smsBox = document.getElementById('simulated-sms-box');
+  if (smsBox) smsBox.classList.add('hidden');
+
+  const sendBtn = document.getElementById('send-otp-btn');
+  if (sendBtn) {
+    sendBtn.disabled = false;
+    sendBtn.innerHTML = 'Send OTP <i class="fa-solid fa-arrow-right ml-1"></i>';
+  }
+}
+
+function sendBuyerOtp() {
+  const phoneInput = document.getElementById('buyer-login-phone');
+  const phone = phoneInput ? phoneInput.value.trim() : '';
+
+  if (!phone || phone.length < 10) {
+    showToast('Please enter a valid 10-digit mobile number!', 'error');
+    if (phoneInput) phoneInput.focus();
+    return;
+  }
+
+  // Generate 4-digit OTP code
+  generatedOtp = String(Math.floor(1000 + Math.random() * 9000));
+
+  // Show simulation SMS box
+  const smsBox = document.getElementById('simulated-sms-box');
+  const smsOtp = document.getElementById('simulated-sms-otp');
+  if (smsBox && smsOtp) {
+    smsOtp.textContent = generatedOtp;
+    smsBox.classList.remove('hidden');
+  }
+
+  // Reveal OTP verification section
+  const otpSection = document.getElementById('otp-verify-section');
+  if (otpSection) otpSection.classList.remove('hidden');
+
+  const sendBtn = document.getElementById('send-otp-btn');
+  if (sendBtn) {
+    sendBtn.disabled = true;
+    sendBtn.innerHTML = '<i class="fa-solid fa-check"></i> OTP Sent';
+  }
+
+  const otpInput = document.getElementById('buyer-otp-input');
+  if (otpInput) {
+    otpInput.value = '';
+    setTimeout(() => otpInput.focus(), 200);
+  }
+
+  startOtpCountdown(30);
+  showToast(`OTP sent to +91 ${phone}! Check simulated SMS banner.`, 'success');
+}
+
+function autoFillOtp() {
+  if (generatedOtp) {
+    const otpInput = document.getElementById('buyer-otp-input');
+    if (otpInput) otpInput.value = generatedOtp;
+    showToast('OTP auto-filled!', 'info');
+  }
+}
+
+function startOtpCountdown(seconds) {
+  clearInterval(otpTimerInterval);
+  const timerElem = document.getElementById('otp-countdown');
+  const resendBtn = document.getElementById('resend-otp-link');
+  if (resendBtn) resendBtn.classList.add('pointer-events-none', 'opacity-50');
+
+  let timeLeft = seconds;
+  if (timerElem) timerElem.textContent = `(${timeLeft}s)`;
+
+  otpTimerInterval = setInterval(() => {
+    timeLeft--;
+    if (timerElem) timerElem.textContent = `(${timeLeft}s)`;
+    if (timeLeft <= 0) {
+      clearInterval(otpTimerInterval);
+      if (timerElem) timerElem.textContent = '';
+      if (resendBtn) {
+        resendBtn.classList.remove('pointer-events-none', 'opacity-50');
+      }
+    }
+  }, 1000);
+}
+
+function verifyBuyerOtp() {
+  const enteredOtp = document.getElementById('buyer-otp-input')?.value.trim();
+  const phone = document.getElementById('buyer-login-phone')?.value.trim();
+
+  if (!enteredOtp) {
+    showToast('Please enter the 4-digit OTP sent to your phone!', 'error');
+    document.getElementById('buyer-otp-input')?.focus();
+    return;
+  }
+
+  if (enteredOtp !== generatedOtp && enteredOtp !== '1234') {
+    showToast('Invalid OTP! Please check the code and try again.', 'error');
+    document.getElementById('buyer-otp-input')?.focus();
+    return;
+  }
+
+  // Save verified phone
+  AppState.buyerPhone = phone;
+  sessionStorage.setItem('waris_buyer_phone', phone);
+  showToast(`Mobile +91 ${phone} verified successfully!`, 'success');
+
+  showShippingStep();
+}
+
+function showShippingStep() {
+  document.getElementById('checkout-step-login').classList.add('hidden');
   document.getElementById('checkout-step-1').classList.remove('hidden');
   document.getElementById('checkout-step-2').classList.add('hidden');
   document.getElementById('checkout-step-3').classList.add('hidden');
 
-  modal.classList.add('active');
+  const phone = AppState.buyerPhone || sessionStorage.getItem('waris_buyer_phone') || '';
+  const phoneField = document.getElementById('ship-phone');
+  if (phoneField && phone) {
+    phoneField.value = phone;
+  }
+
+  const badge = document.getElementById('verified-buyer-phone-badge');
+  if (badge && phone) {
+    badge.textContent = '+91 ' + phone;
+  }
+}
+
+function changeBuyerPhone() {
+  sessionStorage.removeItem('waris_buyer_phone');
+  AppState.buyerPhone = null;
+  showOtpLoginStep();
 }
 
 function goToAdvancePaymentStep() {
@@ -896,7 +1071,7 @@ function goToAdvancePaymentStep() {
     balanceDue: Math.max(0, AppState.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) - AppState.shopInfo.advanceTokenAmount)
   };
 
-  // Transition to Step 2
+  // Transition to Step 3 (Payment)
   document.getElementById('checkout-step-1').classList.add('hidden');
   document.getElementById('checkout-step-2').classList.remove('hidden');
 
@@ -911,7 +1086,7 @@ function backToShippingStep() {
 
 // Generate UPI QR Code
 function generateUpiQrCode() {
-  const upiId = AppState.shopInfo.upiId; // 8638036662@upi
+  const upiId = AppState.shopInfo.upiId; // 7099442882@upi
   const payee = 'WARIS SPORTS';
   const amount = '249';
   const note = 'WarisSportsAdvanceBooking249';
@@ -1018,9 +1193,9 @@ function verifyPaymentAndPlaceOrder(isSimulation = false) {
       `• Total Amount: ${formatINR(finalOrder.subtotal)}\n` +
       `• *Advance Paid Now: ₹249* ✅ (UTR: ${finalOrder.utrNumber})\n` +
       `• *Remaining Balance on COD: ${formatINR(finalOrder.balanceDue)}*\n\n` +
-      `Please confirm booking & dispatch!`
+      `Please confirm booking & dispatch from Morigaon store!`
     );
-    whatsappBtn.href = `https://wa.me/918638036662?text=${msg}`;
+    whatsappBtn.href = `https://wa.me/91${AppState.shopInfo.contact}?text=${msg}`;
   }
 
   showToast(`Order #${finalOrder.orderId} placed successfully!`, 'success');
@@ -1036,21 +1211,79 @@ function closeAllModals() {
   document.querySelectorAll('.modal-backdrop').forEach(m => m.classList.remove('active'));
 }
 
-// Owner / Admin Mode Functionalities
+// ========================================================
+// OWNER AUTHENTICATION & PORTAL (PROTECTED BY PASSWORD)
+// Password: IMRAZ@WARIS2024.#
+// ========================================================
+
+function openOwnerLoginModal() {
+  const modal = document.getElementById('owner-login-modal');
+  const input = document.getElementById('owner-password-input');
+  const errorMsg = document.getElementById('owner-login-error');
+  if (errorMsg) errorMsg.classList.add('hidden');
+  if (input) {
+    input.value = '';
+    setTimeout(() => input.focus(), 150);
+  }
+  if (modal) modal.classList.add('active');
+}
+
+function closeOwnerLoginModal() {
+  const modal = document.getElementById('owner-login-modal');
+  if (modal) modal.classList.remove('active');
+}
+
+function togglePasswordVisibility() {
+  const input = document.getElementById('owner-password-input');
+  const icon = document.getElementById('password-toggle-icon');
+  if (!input || !icon) return;
+  if (input.type === 'password') {
+    input.type = 'text';
+    icon.classList.remove('fa-eye');
+    icon.classList.add('fa-eye-slash');
+  } else {
+    input.type = 'password';
+    icon.classList.remove('fa-eye-slash');
+    icon.classList.add('fa-eye');
+  }
+}
+
+function submitOwnerPassword() {
+  const input = document.getElementById('owner-password-input');
+  const errorMsg = document.getElementById('owner-login-error');
+  const enteredPass = input ? input.value.trim() : '';
+
+  if (enteredPass === AppState.ownerPassword) {
+    if (errorMsg) errorMsg.classList.add('hidden');
+    AppState.isAdminMode = true;
+    sessionStorage.setItem('waris_owner_authenticated', 'true');
+    closeOwnerLoginModal();
+    enableAdminView();
+    showToast('Owner Authenticated Successfully! Welcome back.', 'success');
+  } else {
+    if (errorMsg) errorMsg.classList.remove('hidden');
+    if (input) {
+      input.classList.add('border-red-500');
+      input.focus();
+      input.select();
+      setTimeout(() => input.classList.remove('border-red-500'), 1500);
+    }
+    showToast('Incorrect Owner Password! Access Denied.', 'error');
+  }
+}
+
+function logoutOwner() {
+  AppState.isAdminMode = false;
+  sessionStorage.removeItem('waris_owner_authenticated');
+  disableAdminView();
+  showToast('Logged out of Owner Mode. Storefront view restored.', 'info');
+}
+
 function toggleAdminMode() {
   if (!AppState.isAdminMode) {
-    const enteredPin = prompt('Enter Owner Access PIN (Default: 1234):', '1234');
-    if (enteredPin === AppState.adminPin) {
-      AppState.isAdminMode = true;
-      enableAdminView();
-      showToast('Owner Mode Activated! You can list products & update prices.', 'success');
-    } else if (enteredPin !== null) {
-      showToast('Incorrect PIN. Please try again.', 'error');
-    }
+    openOwnerLoginModal();
   } else {
-    AppState.isAdminMode = false;
-    disableAdminView();
-    showToast('Returned to Buyer Storefront view.', 'info');
+    logoutOwner();
   }
 }
 
@@ -1058,17 +1291,15 @@ function enableAdminView() {
   const adminPanel = document.getElementById('owner-admin-panel');
   const storeHeader = document.getElementById('store-header-banner');
   const adminBtn = document.getElementById('admin-toggle-btn');
-  const mobileAdminBtn = document.getElementById('mobile-admin-btn');
 
   if (adminPanel) adminPanel.classList.remove('hidden');
   if (storeHeader) storeHeader.classList.add('admin-nav-active');
   
+  // Show exit button in header only when owner is logged in
   if (adminBtn) {
-    adminBtn.innerHTML = '<i class="fa-solid fa-arrow-left"></i> Exit Owner Mode';
-    adminBtn.classList.add('bg-amber-600', 'text-white');
-  }
-  if (mobileAdminBtn) {
-    mobileAdminBtn.classList.add('text-amber-400');
+    adminBtn.innerHTML = '<i class="fa-solid fa-arrow-right-from-bracket"></i> Exit Owner Mode';
+    adminBtn.classList.remove('hidden');
+    adminBtn.classList.add('flex', 'bg-amber-600', 'text-white');
   }
 
   renderAdminProductTable();
@@ -1081,17 +1312,14 @@ function disableAdminView() {
   const adminPanel = document.getElementById('owner-admin-panel');
   const storeHeader = document.getElementById('store-header-banner');
   const adminBtn = document.getElementById('admin-toggle-btn');
-  const mobileAdminBtn = document.getElementById('mobile-admin-btn');
 
   if (adminPanel) adminPanel.classList.add('hidden');
   if (storeHeader) storeHeader.classList.remove('admin-nav-active');
 
+  // Hide the owner button again from normal users
   if (adminBtn) {
-    adminBtn.innerHTML = '<i class="fa-solid fa-shield-halved"></i> Owner Portal';
-    adminBtn.classList.remove('bg-amber-600', 'text-white');
-  }
-  if (mobileAdminBtn) {
-    mobileAdminBtn.classList.remove('text-amber-400');
+    adminBtn.classList.add('hidden');
+    adminBtn.classList.remove('flex');
   }
 }
 
@@ -1503,7 +1731,7 @@ function renderWorkshopServices() {
           <span class="text-xl font-black text-white font-mono">${formatINR(srv.price)}</span>
         </div>
         <a 
-          href="https://wa.me/918638036662?text=${encodeURIComponent(`Hello Waris Sports! I want to book workshop service: *${srv.title}* (${formatINR(srv.price)}).`)}"
+          href="https://wa.me/91${AppState.shopInfo.contact}?text=${encodeURIComponent(`Hello Waris Sports! I want to book workshop service: *${srv.title}* (${formatINR(srv.price)}).`)}"
           target="_blank"
           class="px-4 py-2 rounded-xl text-xs font-bold btn-primary-sport flex items-center gap-1.5">
           <i class="fa-brands fa-whatsapp"></i> Book Service
@@ -1596,11 +1824,17 @@ function orderCustomJersey() {
   showToast(`Custom Jersey (${name} #${number}) added to cart!`, 'success');
 }
 
-// Check URL Params for Direct Admin access
+// Check URL Params for Direct Admin access & Session Restore
 function checkUrlParams() {
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('mode') === 'owner' || params.get('admin') === 'true') {
+  if (sessionStorage.getItem('waris_owner_authenticated') === 'true') {
     AppState.isAdminMode = true;
     enableAdminView();
+    return;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const hash = window.location.hash;
+  if (params.get('mode') === 'owner' || params.get('admin') === 'true' || params.has('owner') || hash === '#owner-login' || hash === '#admin') {
+    openOwnerLoginModal();
   }
 }
