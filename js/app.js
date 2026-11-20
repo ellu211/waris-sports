@@ -1,9 +1,11 @@
+import { db, auth } from './firebase-config.js';
+console.log("Firebase Connected:", db);
 /**
  * WARIS SPORTS - Main Application Engine
  * Shop Name: WARIS SPORTS
  * Contact: 7099442882, 6026108804 | Email: warissports2024@gmail.com
  * Location: Morigaon Civil Tini ali near Digital market, PIN: 782105
- * Instagram: warissports2024 | Advance Token Fee: ₹249
+ * Instagram: warissports2024 | 
  * Owner Access: Protected by secret password
  */
 
@@ -14,7 +16,7 @@ const AppState = {
   orders: [],
   activeCategory: 'all',
   searchQuery: '',
-  maxPrice: 30000,
+  maxPrice: 7000,
   sortBy: 'featured',
   isAdminMode: false,
   ownerPassword: 'IMRAZ@WARIS2024.#',
@@ -30,7 +32,7 @@ const AppState = {
     instagramUrl: 'https://instagram.com/warissports2024',
     whatsappUrl: 'https://wa.me/917099442882',
     whatsappUrlAlt: 'https://wa.me/916026108804',
-    advanceTokenAmount: 249,
+  
     upiId: '7099442882@upi',
     address: 'Morigaon Civil Tini ali near Digital market, Assam',
     pin: '782105'
